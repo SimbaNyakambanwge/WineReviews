@@ -413,7 +413,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <text value="Connect to Server"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="d738c" class="javax.swing.JTextField" binding="EmailCustomersTextfield">
@@ -626,7 +626,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <text value="Connect to Server"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="21708" class="javax.swing.JButton" binding="PrintReviews">

@@ -6,7 +6,6 @@ import both.*;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -76,16 +75,21 @@ public class ClientHandler implements Runnable {
                 if(parcelRead.getCommand() == Command.SELECT && parcelRead.getTable() == Table.WINE){
                     ArrayList<Wine> reply;
 
-                    reply = (ArrayList<Wine>) ThreadedServer.getWines();
+                    reply = (ArrayList<Wine>) Server.getWines();
 
                     objectOutputStream.writeObject(reply);
                 }
                 else if((parcelRead.getCommand() == Command.SELECT && parcelRead.getTable() == Table.CUSTOMERS)){
                     ArrayList<Customers> reply;
-                    reply = (ArrayList<Customers>) ThreadedServer.getCustomers();
+                    reply = (ArrayList<Customers>) Server.getCustomers();
 
                     objectOutputStream.writeObject(reply);
+                }
+                else if((parcelRead.getCommand() == Command.SELECT && parcelRead.getTable()==Table.REVIEWS)){
+                    ArrayList<Reviews> reply;
+                    reply = (ArrayList<Reviews>) Server.getReviews();
 
+                    objectOutputStream.writeObject(reply);
                 }
             }
         } catch (IOException ex) {

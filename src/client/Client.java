@@ -107,6 +107,7 @@ public class Client {
 
     private WineTable winetablemodel;
     private CustomerTable customertablemodel;
+    private ReviewTable reviewtablemodel;
 
     public Client(){
 
@@ -117,6 +118,9 @@ public class Client {
 
         customertablemodel = new CustomerTable();
         Customertable.setModel(customertablemodel);
+
+        reviewtablemodel = new ReviewTable();
+        Reviewstable.setModel(reviewtablemodel);
 
 
         j.add(panel1);
@@ -145,9 +149,51 @@ public class Client {
             }
         });
 
-
+        GetTablleReviews.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getReviewTable();
+            }
+        });
 
     }
+
+    private void getReviewTable() {
+        if(objectOutputStream !=null && objectInputStream !=null) {
+            Reviews newReview = new Reviews();
+
+            try {
+                objectOutputStream.writeObject(new Parcel(Command.SELECT, Table.REVIEWS, newReview));
+            }catch (IOException e){
+
+                System.out.println("IOEXCEPTION ERROR" + e);
+            }
+            ArrayList<Reviews> reply = new ArrayList<>();
+
+            try{
+                reply = (ArrayList<Reviews>) objectInputStream.readObject();
+            }
+            catch(IOException | ClassNotFoundException e){
+                System.out.println("IOEXCEPTION ERROR" + e);
+            }
+
+            if(reply !=null){
+                try {
+                    reviewtablemodel.getData(reply);
+                }
+                catch(NullPointerException e) {
+
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, e);
+                }
+
+
+            }
+            else {
+                System.out.println("please connect to server first");
+            }
+        }
+    }
+
 
     private void getCustomerTable() {
         if(objectOutputStream !=null && objectInputStream !=null) {
@@ -207,9 +253,6 @@ public class Client {
             if(reply !=null){
                 try {
                     winetablemodel.getData(reply);
-                    //WinesJPanel.add(winescroll);
-
-
 
                 }
                 catch(NullPointerException e) {

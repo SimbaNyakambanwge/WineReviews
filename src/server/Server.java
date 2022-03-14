@@ -1,6 +1,7 @@
 package server;
 
 import both.Customers;
+import both.Reviews;
 import both.Wine;
 
 import java.io.*;
@@ -21,13 +22,13 @@ import java.util.logging.Logger;
  * @author Chris Bass
  * 06/04/2016
  */
-public class ThreadedServer {
+public class Server {
 
 
     /**
      * Constructor will just initialise the HashMap lookup table on the Server.
      */
-    public ThreadedServer() {
+    public Server() {
 
     }
 
@@ -71,6 +72,24 @@ public class ThreadedServer {
 
     }
 
+    public static Object getReviews() {
+        ArrayList<Reviews> record = new ArrayList<>();
+        String sql = "SELECT * FROM CustomerReviews";
+
+        try(Connection conn = ConnectionFactory.getConnection(); PreparedStatement prep = conn.prepareStatement(sql)){
+
+            ResultSet resultSet = prep.executeQuery();
+
+            while(resultSet.next()){
+                record.add(Reviews.ReviewFromResult(resultSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return record;
+
+    }
+
     /**
      * Wait until a client connects to the server on a port, then establish the
      * connection via a socket object and create a thread to handle requests.
@@ -94,13 +113,13 @@ public class ThreadedServer {
                 }
             }
         } catch (IOException ex) {
-            Logger.getLogger(ThreadedServer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Server: Closed down");
         }
     }
 
     public static void main(String[] args) {
-        ThreadedServer simpleServer = new ThreadedServer();
+        Server simpleServer = new Server();
         simpleServer.connectToClients();
     }
 
