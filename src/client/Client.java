@@ -1,8 +1,27 @@
 package client;
 
+import both.Command;
+import both.Parcel;
+import both.Table;
+import both.Wine;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Client {
+
+    private ObjectOutputStream objectOutputStream;
+    private ObjectInputStream objectInputStream;
+    private Socket socket;
+
     private JTabbedPane Wines;
     private JPanel panel1;
     private JButton connectToServerButton;
@@ -83,6 +102,128 @@ public class Client {
     private JLabel CustomerDescriptionReviewsLabel;
     private JLabel CustomerratingReviewsLabel;
     private JLabel DateaddedLabel;
+    private JPanel WinesJPanel;
+    private JScrollPane winescroll;
 
+
+    private WineTable winetablemodel;
+
+    public Client(){
+
+        //panel1 = new JPanel();
+        final JFrame j = new JFrame("Wine Review");
+        winetablemodel = new WineTable();
+        Winestable1.setModel(winetablemodel);
+        //winescroll = new JScrollPane(Winestable1, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+
+
+
+        j.add(panel1);
+        j.setSize(400, 400);
+        j.setVisible(true);
+
+        connectToServerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reconnectToServer();
+            }
+        });
+
+        getTableButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getWineTable();
+
+            }
+        });
+
+
+
+
+    }
+
+    private void getWineTable(){
+        if(objectOutputStream !=null && objectInputStream !=null) {
+            Wine newWine = new Wine();
+
+            try {
+                objectOutputStream.writeObject(new Parcel(Command.SELECT, Table.WINE, newWine));
+            }catch (IOException e){
+
+                System.out.println("IOEXCEPTION ERROR" + e);
+            }
+            ArrayList<Wine> reply = new ArrayList<>();
+
+            try{
+                reply = (ArrayList<Wine>) objectInputStream.readObject();
+            }
+            catch(IOException | ClassNotFoundException e){
+                System.out.println("IOEXCEPTION ERROR" + e);
+            }
+
+            if(reply !=null){
+                try {
+                    winetablemodel.getData(reply);
+                    //WinesJPanel.add(winescroll);
+
+
+
+                }
+                catch(NullPointerException e) {
+
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, e);
+                }
+
+
+            }
+            else {
+                System.out.println("please connect to serever first");
+            }
+        }
+
+
+    }
+
+
+
+    private void closeConnection(){
+        if(socket != null){
+            System.out.println("Status: closing connection");
+            try{
+                socket.close();
+            }catch (IOException ex){
+                Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+            }finally{
+                socket = null;
+            }
+        }
+    }
+
+    private void reconnectToServer(){
+        closeConnection();
+        System.out.println("Status: Attempting to connect");
+        try {
+
+            socket = new Socket("127.0.0.1", 5000);
+            objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            objectInputStream = new ObjectInputStream(socket.getInputStream());
+
+            System.out.println("Status: Connected to server");
+
+
+        }catch(IOException e){
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, e);
+
+        }
+
+
+    }
+
+
+
+    public static void main(String[] args){
+        Client obj = new Client();
+    }
 
 }
