@@ -103,6 +103,8 @@ public class Client {
     private JLabel CustomerratingReviewsLabel;
     private JLabel DateaddedLabel;
     private JPanel WinesJPanel;
+    private JPanel CustomersJPanel;
+    private JPanel ReviewsJPanel;
     private JScrollPane winescroll;
 
 

@@ -77,14 +77,6 @@
                   <text value="Get Table"/>
                 </properties>
               </component>
-              <component id="469c0" class="javax.swing.JTable" binding="Winestable1">
-                <constraints>
-                  <grid row="2" column="1" row-span="29" col-span="5" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="50"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
               <component id="66578" class="javax.swing.JTextField" binding="TitleWinestextfield">
                 <constraints>
                   <grid row="24" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
@@ -351,9 +343,22 @@
                   <text value="Year"/>
                 </properties>
               </component>
+              <scrollpane id="41a5e">
+                <constraints>
+                  <grid row="2" column="1" row-span="29" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="469c0" class="javax.swing.JTable" binding="Winestable1">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
             </children>
           </grid>
-          <grid id="850f1" layout-manager="GridLayoutManager" row-count="21" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="850f1" binding="CustomersJPanel" layout-manager="GridLayoutManager" row-count="21" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title="Customers"/>
@@ -392,14 +397,6 @@
                 <properties>
                   <text value="Print"/>
                 </properties>
-              </component>
-              <component id="fcd88" class="javax.swing.JTable" binding="Customertable">
-                <constraints>
-                  <grid row="1" column="1" row-span="20" col-span="5" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="50"/>
-                  </grid>
-                </constraints>
-                <properties/>
               </component>
               <component id="11046" class="javax.swing.JButton">
                 <constraints>
@@ -599,9 +596,22 @@
                   <text value="Email"/>
                 </properties>
               </component>
+              <scrollpane id="ae749">
+                <constraints>
+                  <grid row="1" column="1" row-span="20" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="fcd88" class="javax.swing.JTable" binding="Customertable">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
             </children>
           </grid>
-          <grid id="5cc3c" layout-manager="GridLayoutManager" row-count="13" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="5cc3c" binding="ReviewsJPanel" layout-manager="GridLayoutManager" row-count="13" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title="Reviews"/>
@@ -658,14 +668,6 @@
                 <properties>
                   <text value="GetTable"/>
                 </properties>
-              </component>
-              <component id="24111" class="javax.swing.JTable" binding="Reviewstable">
-                <constraints>
-                  <grid row="1" column="1" row-span="12" col-span="5" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="50"/>
-                  </grid>
-                </constraints>
-                <properties/>
               </component>
               <component id="f6b02" class="javax.swing.JTextField" binding="CustomerRatingReviewsTextfield">
                 <constraints>
@@ -775,6 +777,19 @@
                   <text value="Date Added"/>
                 </properties>
               </component>
+              <scrollpane id="936b6">
+                <constraints>
+                  <grid row="1" column="1" row-span="12" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="24111" class="javax.swing.JTable" binding="Reviewstable">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
             </children>
           </grid>
         </children>
