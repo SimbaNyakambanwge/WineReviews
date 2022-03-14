@@ -1,9 +1,6 @@
 package client;
 
-import both.Command;
-import both.Parcel;
-import both.Table;
-import both.Wine;
+import both.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -109,16 +106,17 @@ public class Client {
 
 
     private WineTable winetablemodel;
+    private CustomerTable customertablemodel;
 
     public Client(){
 
-        //panel1 = new JPanel();
+
         final JFrame j = new JFrame("Wine Review");
         winetablemodel = new WineTable();
         Winestable1.setModel(winetablemodel);
-        //winescroll = new JScrollPane(Winestable1, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
-
+        customertablemodel = new CustomerTable();
+        Customertable.setModel(customertablemodel);
 
 
         j.add(panel1);
@@ -140,9 +138,51 @@ public class Client {
             }
         });
 
+        GetTableCustomers.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getCustomerTable();
+            }
+        });
 
 
 
+    }
+
+    private void getCustomerTable() {
+        if(objectOutputStream !=null && objectInputStream !=null) {
+            Customers newCustomer = new Customers();
+
+            try {
+                objectOutputStream.writeObject(new Parcel(Command.SELECT, Table.CUSTOMERS, newCustomer));
+            }catch (IOException e){
+
+                System.out.println("IOEXCEPTION ERROR" + e);
+            }
+            ArrayList<Customers> reply = new ArrayList<>();
+
+            try{
+                reply = (ArrayList<Customers>) objectInputStream.readObject();
+            }
+            catch(IOException | ClassNotFoundException e){
+                System.out.println("IOEXCEPTION ERROR" + e);
+            }
+
+            if(reply !=null){
+                try {
+                    customertablemodel.getData(reply);
+                }
+                catch(NullPointerException e) {
+
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, e);
+                }
+
+
+            }
+            else {
+                System.out.println("please connect to server first");
+            }
+        }
     }
 
     private void getWineTable(){

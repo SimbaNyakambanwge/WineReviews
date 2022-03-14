@@ -1,5 +1,6 @@
 package server;
 
+import both.Customers;
 import both.Wine;
 
 import java.io.*;
@@ -44,6 +45,24 @@ public class ThreadedServer {
 
             while(resultSet.next()){
                 record.add(Wine.WineFromResult(resultSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return record;
+
+    }
+
+    public static Object getCustomers() {
+        ArrayList<Customers> record = new ArrayList<>();
+        String sql = "SELECT * FROM Customers";
+
+        try(Connection conn = ConnectionFactory.getConnection(); PreparedStatement prep = conn.prepareStatement(sql)){
+
+            ResultSet resultSet = prep.executeQuery();
+
+            while(resultSet.next()){
+                record.add(Customers.CustomerFromResult(resultSet));
             }
         } catch (SQLException e) {
             e.printStackTrace();

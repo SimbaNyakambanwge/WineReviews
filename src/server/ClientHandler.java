@@ -1,10 +1,7 @@
 package server;
 
 
-import both.Command;
-import both.Parcel;
-import both.Table;
-import both.Wine;
+import both.*;
 
 import java.io.*;
 import java.net.Socket;
@@ -82,6 +79,13 @@ public class ClientHandler implements Runnable {
                     reply = (ArrayList<Wine>) ThreadedServer.getWines();
 
                     objectOutputStream.writeObject(reply);
+                }
+                else if((parcelRead.getCommand() == Command.SELECT && parcelRead.getTable() == Table.CUSTOMERS)){
+                    ArrayList<Customers> reply;
+                    reply = (ArrayList<Customers>) ThreadedServer.getCustomers();
+
+                    objectOutputStream.writeObject(reply);
+
                 }
             }
         } catch (IOException ex) {
