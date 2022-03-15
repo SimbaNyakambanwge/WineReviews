@@ -36,7 +36,7 @@ public class Server {
      * Let's just hard-code a simple HashMap<Keys, Values> to act as a lookup
      * table for the data to send.
      */
-    public synchronized static List<Wine> getWines() {
+    public static Object getWines() {
         ArrayList<Wine> record = new ArrayList<>();
         String sql = "SELECT * FROM Wines";
 
@@ -87,8 +87,9 @@ public class Server {
             e.printStackTrace();
         }
         return record;
-
     }
+
+
 
     /**
      * Wait until a client connects to the server on a port, then establish the

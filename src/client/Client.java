@@ -163,7 +163,7 @@ public class Client {
             Reviews newReview = new Reviews();
 
             try {
-                objectOutputStream.writeObject(new Parcel(Command.SELECT, Table.REVIEWS, newReview));
+                objectOutputStream.writeObject(new Parcel(Command.SELECT, TableSelection.REVIEWS, newReview));
             }catch (IOException e){
 
                 System.out.println("IOEXCEPTION ERROR" + e);
@@ -200,7 +200,7 @@ public class Client {
             Customers newCustomer = new Customers();
 
             try {
-                objectOutputStream.writeObject(new Parcel(Command.SELECT, Table.CUSTOMERS, newCustomer));
+                objectOutputStream.writeObject(new Parcel(Command.SELECT, TableSelection.CUSTOMERS, newCustomer));
             }catch (IOException e){
 
                 System.out.println("IOEXCEPTION ERROR" + e);
@@ -236,7 +236,7 @@ public class Client {
             Wine newWine = new Wine();
 
             try {
-                objectOutputStream.writeObject(new Parcel(Command.SELECT, Table.WINE, newWine));
+                objectOutputStream.writeObject(new Parcel(Command.SELECT, TableSelection.WINE, newWine));
             }catch (IOException e){
 
                 System.out.println("IOEXCEPTION ERROR" + e);
@@ -263,10 +263,9 @@ public class Client {
 
             }
             else {
-                System.out.println("please connect to serever first");
+                System.out.println("please connect to server first");
             }
         }
-
 
     }
 

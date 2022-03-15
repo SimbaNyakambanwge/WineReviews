@@ -1,7 +1,7 @@
 package both;
 
 
-public enum Table {
+public enum TableSelection {
     WINE,
     CUSTOMERS,
     REVIEWS

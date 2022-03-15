@@ -5,6 +5,7 @@ public enum Command {
     SELECT,
     ADD,
     REMOVE,
-    EDIT
+    EDIT,
+    PRINT
 
 }

@@ -5,14 +5,14 @@ import java.io.Serializable;
 public class Parcel implements Serializable {
 
     private Command command;
-    private Table table;
+    private TableSelection table;
     private Object obj;
 
     public Parcel(){
 
     }
 
-    public Parcel(Command command, Table table, Object obj) {
+    public Parcel(Command command, TableSelection table, Object obj) {
         this.command = command;
         this.table = table;
         this.obj = obj;
@@ -26,11 +26,11 @@ public class Parcel implements Serializable {
         this.command = command;
     }
 
-    public Table getTable() {
+    public TableSelection getTable() {
         return table;
     }
 
-    public void setTable(Table table) {
+    public void setTable(TableSelection table) {
         this.table = table;
     }
 

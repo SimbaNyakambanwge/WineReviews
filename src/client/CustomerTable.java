@@ -24,7 +24,7 @@ public class CustomerTable extends AbstractTableModel {
 
         Customerdetails.clear(); //clearing from previous
 
-        for(Customers details: data){  //for eachrow
+        for(Customers details: data){  //for each row
 
             int customerid = details.getCustomer_id();
             String firstName = details.getFirstName();

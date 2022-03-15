@@ -72,20 +72,20 @@ public class ClientHandler implements Runnable {
 
             while((parcelRead = (Parcel) objectInputStream.readObject()) != null){
 
-                if(parcelRead.getCommand() == Command.SELECT && parcelRead.getTable() == Table.WINE){
+                if(parcelRead.getCommand() == Command.SELECT && parcelRead.getTable() == TableSelection.WINE){
                     ArrayList<Wine> reply;
 
                     reply = (ArrayList<Wine>) Server.getWines();
 
                     objectOutputStream.writeObject(reply);
                 }
-                else if((parcelRead.getCommand() == Command.SELECT && parcelRead.getTable() == Table.CUSTOMERS)){
+                else if((parcelRead.getCommand() == Command.SELECT && parcelRead.getTable() == TableSelection.CUSTOMERS)){
                     ArrayList<Customers> reply;
                     reply = (ArrayList<Customers>) Server.getCustomers();
 
                     objectOutputStream.writeObject(reply);
                 }
-                else if((parcelRead.getCommand() == Command.SELECT && parcelRead.getTable()==Table.REVIEWS)){
+                else if((parcelRead.getCommand() == Command.SELECT && parcelRead.getTable()== TableSelection.REVIEWS)){
                     ArrayList<Reviews> reply;
                     reply = (ArrayList<Reviews>) Server.getReviews();
 
