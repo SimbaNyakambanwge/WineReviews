@@ -120,8 +120,8 @@ public class Server {
     }
 
     public static void main(String[] args) {
-        Server simpleServer = new Server();
-        simpleServer.connectToClients();
+        Server myServer = new Server();
+        myServer.connectToClients();
     }
 
 }

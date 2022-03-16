@@ -6,6 +6,6 @@ public enum Command {
     ADD,
     REMOVE,
     EDIT,
-    PRINT
+    PRINT,
 
 }
