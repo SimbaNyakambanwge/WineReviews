@@ -2,11 +2,13 @@ package client;
 
 import both.*;
 
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.print.PrinterException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -161,6 +163,17 @@ public class Client {
             }
         });
 
+        printButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Winestable1.print();
+                } catch (PrinterException printerException) {
+                    printerException.printStackTrace();
+                }
+            }
+        });
+
 
 
     }
@@ -308,7 +321,6 @@ public class Client {
 
         }
 
-
     }
 
     private void wineTableListener(){
@@ -433,6 +445,10 @@ public class Client {
 
             }
         });
+
+
+
+
     }
 
 

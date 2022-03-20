@@ -61,7 +61,6 @@ public class ClientHandler implements Runnable {
     public void run() {
         try (
             // Read and process names until an exception is thrown.
-
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
         )

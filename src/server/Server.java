@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * multi-threading. This class has the responsibility for connecting new clients
  * and starting a new thread for each new client.
  *
- * @author Chris Bass
+ * @author Simbarashe Nyakambangwe
  * 06/04/2016
  */
 public class Server {
