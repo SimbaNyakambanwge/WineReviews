@@ -174,6 +174,28 @@ public class Client {
             }
         });
 
+        PrintCustomers.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    Customertable.print();
+                }catch(PrinterException printerException){
+                    printerException.printStackTrace();
+                }
+            }
+        });
+
+        PrintReviews.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    Reviewstable.print();
+                }catch(PrinterException printerException){
+                    printerException.printStackTrace();
+                }
+            }
+        });
+
 
 
     }
