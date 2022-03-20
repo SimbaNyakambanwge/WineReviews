@@ -18,11 +18,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Client {
-
-    private ObjectOutputStream objectOutputStream;
-    private ObjectInputStream objectInputStream;
-    private Socket socket;
-
     private JTabbedPane Wines;
     private JPanel panel1;
     private JButton connectToServerButton;
@@ -114,9 +109,20 @@ public class Client {
     private CustomerTable customertablemodel;
     private ReviewTable reviewtablemodel;
 
+    private ObjectOutputStream objectOutputStream;
+    private ObjectInputStream objectInputStream;
+    private Socket socket;
+
+
     public Client(){
 
+        initialSetup();
 
+        buttonActionListeners();
+
+    }
+
+    private void initialSetup(){
         final JFrame j = new JFrame("Wine Review");
         winetablemodel = new WineTable();
         Winestable1.setModel(winetablemodel);
@@ -127,11 +133,12 @@ public class Client {
         reviewtablemodel = new ReviewTable();
         Reviewstable.setModel(reviewtablemodel);
 
-
         j.add(panel1);
         j.setSize(400, 400);
         j.setVisible(true);
+    }
 
+    private void buttonActionListeners(){
         connectToServerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -195,9 +202,6 @@ public class Client {
                 }
             }
         });
-
-
-
     }
 
     private void getReviewTable() {
@@ -235,7 +239,6 @@ public class Client {
             }
         }
     }
-
 
     private void getCustomerTable() {
         if(objectOutputStream !=null && objectInputStream !=null) {
@@ -325,7 +328,6 @@ public class Client {
             }
         }
     }
-
     private void reconnectToServer(){
         closeConnection();
         System.out.println("Status: Attempting to connect");
@@ -391,7 +393,6 @@ public class Client {
             }
         });
     }
-
     private void customerTableListener(){
        Customertable.addMouseListener(new MouseListener() {
 
@@ -432,7 +433,6 @@ public class Client {
            }
        });
     }
-
     private void reviewTableListener(){
         Reviewstable.addMouseListener(new MouseListener() {
             @Override
