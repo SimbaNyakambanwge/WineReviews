@@ -89,14 +89,12 @@ public class Server {
         return record;
     }
 
-   public synchronized static void addWinesRow(Wine wine) {
+   public static void addWinesRow(Wine wine) {
 
         String sql = "INSERT INTO Wines ( Country, Description, Designation, Points, Price, Province, Region_1, Region_2, Taster_Name, Taster_Twitter_Handle, Title, Variety, Winery, Year)"
                + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try(Connection conn = ConnectionFactory.getConnection();PreparedStatement prep = conn.prepareStatement(sql)){
-
-
             prep.setString(1,wine.getCountry());
             prep.setString(2, wine.getDescription());
             prep.setString(3, wine.getDesignation());
@@ -120,6 +118,29 @@ public class Server {
 
    }
 
+   public static void addCustomersRow(Customers customers){
+        String sql = "INSERT INTO Customers (first_name, last_name, address, city, county, postal, phone1, phone2, email)"+
+                "VALUES(?,?,?,?,?,?,?,?,?)";
+
+        try(Connection conn = ConnectionFactory.getConnection(); PreparedStatement prep = conn.prepareStatement(sql)){
+
+            prep.setString(1,customers.getFirstName());
+            prep.setString(2,customers.getLastName());
+            prep.setString(3, customers.getAddress());
+            prep.setString(4, customers.getCity());
+            prep.setString(5, customers.getCountry());
+            prep.setString(6, customers.getPostal());
+            prep.setInt(7, customers.getPhone1());
+            prep.setInt(8, customers.getPhone2());
+            prep.setString(9, customers.getEmail());
+
+            prep.execute();
+        }
+        catch(SQLException e){
+            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, e);
+
+        }
+   }
 
     /**
      * Wait until a client connects to the server on a port, then establish the

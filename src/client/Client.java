@@ -103,7 +103,7 @@ public class Client {
     private JPanel WinesJPanel;
     private JPanel CustomersJPanel;
     private JPanel ReviewsJPanel;
-    private JButton addCustomersTextField;
+    private JButton addCustomersButton;
     private JScrollPane wineScroll;
     //endregion
 
@@ -207,6 +207,13 @@ public class Client {
             public void actionPerformed(ActionEvent e) {
                 addWineRow();
                 getWineTable();
+            }
+        });
+        addCustomersButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addCustomerRow();
+                getCustomerTable();
             }
         });
     }
@@ -480,8 +487,7 @@ public class Client {
 
     private void addWineRow(){
         Wine newWine = new Wine();
-
-          //  newWine.setWine_id(Integer.parseInt(wineIdTextField.getText()));
+            //  newWine.setWine_id(Integer.parseInt(wineIdTextField.getText()));
             newWine.setCountry(countryWinesTextField.getText());
             newWine.setDescription(descriptionWinesTextField.getText());
             newWine.setDesignation(designationWinesTextField.getText());
@@ -532,6 +538,56 @@ public class Client {
 
             }
 
+
+    }
+    private void addCustomerRow(){
+       Customers newCustomers = new Customers();
+
+       newCustomers.setFirstName(firstNameCustomersTextField.getText());
+       newCustomers.setLastName(lastNameCustomersTextField.getText());
+       newCustomers.setAddress(addressCustomersTextField.getText());
+       newCustomers.setCity(cityCustomersTextField.getText());
+       newCustomers.setCountry(countryCustomersTextField.getText());
+       newCustomers.setPostal(postalTextField.getText());
+       newCustomers.setPhone1(Integer.parseInt(phone1CustomersTextField.getText()));
+       newCustomers.setPhone2(Integer.parseInt(phone2CustomersTextField.getText()));
+       newCustomers.setEmail(emailCustomersTextField.getText());
+
+        if(objectOutputStream != null && objectInputStream != null){
+            //send data
+            try{
+                objectOutputStream.writeObject(new Parcel(Command.ADD,TableSelection.CUSTOMERS, newCustomers));
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            }
+            //receive reply
+            Parcel reply =null;
+            System.out.println("Waiting for reply from server");
+            try{
+                reply = (Parcel) objectInputStream.readObject();
+                System.out.println("Reply received");
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (reply != null) {
+
+                try {
+
+                    System.out.println(reply);
+
+                } catch (NullPointerException ex) {
+
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+            System.out.println("You must connect to the server first!!");
+
+        }
 
     }
 
