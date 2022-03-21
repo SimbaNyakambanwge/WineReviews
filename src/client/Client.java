@@ -18,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Client {
+
+    //region GUI components
     private JTabbedPane Wines;
     private JPanel panel1;
     private JButton connectToServerButton;
@@ -26,42 +28,42 @@ public class Client {
     private JButton deleteButton;
     private JButton addButton;
     private JButton getTableButton;
-    private JTable Winestable1;
+    private JTable winesTable1;
     private JButton GetTableCustomers;
     private JButton DeleteCustomers;
     private JButton EditCustomers;
     private JButton PrintCustomers;
-    private JTable Customertable;
-    private JTable Reviewstable;
-    private JButton GetTablleReviews;
+    private JTable customerTable;
+    private JTable reviewsTable;
+    private JButton getTableReviews;
     private JButton AddReviews;
     private JButton EditReviews;
     private JButton DeleteReviews;
     private JButton PrintReviews;
-    private JTextField TitleWinestextfield;
-    private JTextField WineIdTextfield;
-    private JTextField DesignationWinesTextfield;
-    private JTextField ProvinceWinesTextfield;
-    private JTextField TastertwitterHandleWinesTextfiled;
-    private JTextField VarietyWinesTextfield;
-    private JTextField WineryTextfield;
-    private JTextField YearWinesTextfield;
-    private JTextField CustomerIdCustomersTextfield;
-    private JTextField FirstnameCustomersTextfield;
-    private JTextField LastnameCustomersTextfield;
-    private JTextField AddressCustomersTextfield;
-    private JTextField CityCustomersTextfield;
-    private JTextField CountryCustomersTextfield;
-    private JTextField PostalTextfield;
-    private JTextField Phone1CustomersTextfield;
-    private JTextField Phone2CustomersTextfield;
-    private JTextField EmailCustomersTextfield;
-    private JTextField ReviewIdReviwsTextfield;
-    private JTextField CustomerIDReviewsTextfield;
-    private JTextField WineIdReviewsTexfield;
-    private JTextField CustomerDescripReviewsTextfield;
-    private JTextField CustomerRatingReviewsTextfield;
-    private JTextField DateAddedReviewTextfield;
+    private JTextField titleWinesTextField;
+    private JTextField wineIdTextField;
+    private JTextField designationWinesTextField;
+    private JTextField provinceWinesTextField;
+    private JTextField tasterTwitterHandleWinesTextField;
+    private JTextField varietyWinesTextField;
+    private JTextField wineryTextField;
+    private JTextField yearWinesTextField;
+    private JTextField customerIdCustomersTextField;
+    private JTextField firstNameCustomersTextField;
+    private JTextField lastNameCustomersTextField;
+    private JTextField addressCustomersTextField;
+    private JTextField cityCustomersTextField;
+    private JTextField countryCustomersTextField;
+    private JTextField postalTextField;
+    private JTextField phone1CustomersTextField;
+    private JTextField phone2CustomersTextField;
+    private JTextField emailCustomersTextField;
+    private JTextField reviewIdReviewsTextField;
+    private JTextField customerIdReviewsTextField;
+    private JTextField wineIdReviewsTextField;
+    private JTextField customerDescriptionReviewsTextField;
+    private JTextField customerRatingReviewsTextField;
+    private JTextField dateAddedReviewTextField;
     private JLabel WineIDLabel;
     private JLabel CountryWinesLabel;
     private JLabel DesignationLabel;
@@ -77,18 +79,18 @@ public class Client {
     private JLabel VarietyLabel;
     private JLabel WineryLabel;
     private JLabel YearLabel;
-    private JTextField CountryWinesTextfield;
-    private JTextField DescriptionWinesTextfield;
-    private JTextField PointsWinesTextfield;
-    private JTextField PriceWinesTextfield;
-    private JTextField Region1WinesTextfield;
-    private JTextField Region2WinestTextfield;
-    private JTextField TasterNameWinestextfield;
+    private JTextField countryWinesTextField;
+    private JTextField descriptionWinesTextField;
+    private JTextField pointsWinesTextField;
+    private JTextField priceWinesTextField;
+    private JTextField region1WinesTextField;
+    private JTextField region2WinesTextField;
+    private JTextField tasterNameWinesTextField;
     private JLabel CustomerIDLabel;
     private JLabel FirstnameLabel;
     private JLabel LastNameLabel;
     private JLabel AddressLabel;
-    private JLabel Countrylabel;
+    private JLabel countryLabel;
     private JLabel PostalLabel;
     private JLabel Phone1Label;
     private JLabel Phone2Label;
@@ -96,42 +98,39 @@ public class Client {
     private JLabel CustomerIdLabel;
     private JLabel WineIdLabel;
     private JLabel CustomerDescriptionReviewsLabel;
-    private JLabel CustomerratingReviewsLabel;
-    private JLabel DateaddedLabel;
+    private JLabel customerRatingReviewsLabel;
+    private JLabel dateAddedLabel;
     private JPanel WinesJPanel;
     private JPanel CustomersJPanel;
     private JPanel ReviewsJPanel;
-    private JButton AddCustomersTextfield;
-    private JScrollPane winescroll;
-
-
-    private WineTable winetablemodel;
-    private CustomerTable customertablemodel;
-    private ReviewTable reviewtablemodel;
+    private JButton addCustomersTextField;
+    private JScrollPane wineScroll;
+    //endregion
 
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
     private Socket socket;
 
+    private WineTable wineTableModel;
+    private CustomerTable customerTableModel;
+    private ReviewTable reviewTableModel;
+
 
     public Client(){
-
         initialSetup();
-
         buttonActionListeners();
-
     }
 
     private void initialSetup(){
         final JFrame j = new JFrame("Wine Review");
-        winetablemodel = new WineTable();
-        Winestable1.setModel(winetablemodel);
+        wineTableModel = new WineTable();
+        winesTable1.setModel(wineTableModel);
 
-        customertablemodel = new CustomerTable();
-        Customertable.setModel(customertablemodel);
+        customerTableModel = new CustomerTable();
+        customerTable.setModel(customerTableModel);
 
-        reviewtablemodel = new ReviewTable();
-        Reviewstable.setModel(reviewtablemodel);
+        reviewTableModel = new ReviewTable();
+        reviewsTable.setModel(reviewTableModel);
 
         j.add(panel1);
         j.setSize(400, 400);
@@ -162,7 +161,7 @@ public class Client {
             }
         });
 
-        GetTablleReviews.addActionListener(new ActionListener() {
+        getTableReviews.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 getReviewTable();
@@ -174,7 +173,7 @@ public class Client {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Winestable1.print();
+                    winesTable1.print();
                 } catch (PrinterException printerException) {
                     printerException.printStackTrace();
                 }
@@ -185,7 +184,7 @@ public class Client {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                    Customertable.print();
+                    customerTable.print();
                 }catch(PrinterException printerException){
                     printerException.printStackTrace();
                 }
@@ -196,10 +195,18 @@ public class Client {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                    Reviewstable.print();
+                    reviewsTable.print();
                 }catch(PrinterException printerException){
                     printerException.printStackTrace();
                 }
+            }
+        });
+
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addWineRow();
+                getWineTable();
             }
         });
     }
@@ -225,7 +232,7 @@ public class Client {
 
             if(reply !=null){
                 try {
-                    reviewtablemodel.getData(reply);
+                    reviewTableModel.getData(reply);
                 }
                 catch(NullPointerException e) {
 
@@ -261,7 +268,7 @@ public class Client {
 
             if(reply !=null){
                 try {
-                    customertablemodel.getData(reply);
+                    customerTableModel.getData(reply);
                 }
                 catch(NullPointerException e) {
 
@@ -297,7 +304,7 @@ public class Client {
 
             if(reply !=null){
                 try {
-                    winetablemodel.getData(reply);
+                    wineTableModel.getData(reply);
 
                 }
                 catch(NullPointerException e) {
@@ -313,8 +320,6 @@ public class Client {
         }
 
     }
-
-
 
     private void closeConnection(){
         if(socket != null){
@@ -349,26 +354,26 @@ public class Client {
 
     private void wineTableListener(){
 
-        Winestable1.addMouseListener(new MouseListener() {
+        winesTable1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int eachRecord = Winestable1.rowAtPoint(e.getPoint());
+                int eachRecord = winesTable1.rowAtPoint(e.getPoint());
 
-                WineIdTextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,0)));
-                CountryWinesTextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,1)));
-                DescriptionWinesTextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,2)));
-                DesignationWinesTextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,3)));
-                PointsWinesTextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,4)));
-                PriceWinesTextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,5)));
-                ProvinceWinesTextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,6)));
-                Region1WinesTextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,7)));
-                Region2WinestTextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,8)));
-                TasterNameWinestextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,9)));
-                TastertwitterHandleWinesTextfiled.setText(String.valueOf(winetablemodel.getValueAt(eachRecord, 10)));
-                TitleWinestextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,11)));
-                VarietyWinesTextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,12)));
-                WineryTextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord, 13)));
-                YearWinesTextfield.setText(String.valueOf(winetablemodel.getValueAt(eachRecord,14)));
+                wineIdTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,0)));
+                countryWinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,1)));
+                descriptionWinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,2)));
+                designationWinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,3)));
+                pointsWinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,4)));
+                priceWinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,5)));
+                provinceWinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,6)));
+                region1WinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,7)));
+                region2WinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,8)));
+                tasterNameWinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,9)));
+                tasterTwitterHandleWinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord, 10)));
+                titleWinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,11)));
+                varietyWinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,12)));
+                wineryTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord, 13)));
+                yearWinesTextField.setText(String.valueOf(wineTableModel.getValueAt(eachRecord,14)));
 
             }
 
@@ -394,22 +399,22 @@ public class Client {
         });
     }
     private void customerTableListener(){
-       Customertable.addMouseListener(new MouseListener() {
+       customerTable.addMouseListener(new MouseListener() {
 
            @Override
            public void mouseClicked(MouseEvent e) {
-               int eachRecord = Customertable.rowAtPoint(e.getPoint());
+               int eachRecord = customerTable.rowAtPoint(e.getPoint());
 
-               CustomerIdCustomersTextfield.setText(String.valueOf(customertablemodel.getValueAt(eachRecord,0)));
-               FirstnameCustomersTextfield.setText(String.valueOf(customertablemodel.getValueAt(eachRecord,1)));
-               LastnameCustomersTextfield.setText(String.valueOf(customertablemodel.getValueAt(eachRecord,2)));
-               AddressCustomersTextfield.setText(String.valueOf(customertablemodel.getValueAt(eachRecord,3)));
-               CityCustomersTextfield.setText(String.valueOf(customertablemodel.getValueAt(eachRecord,4)));
-               CountryCustomersTextfield.setText(String.valueOf(customertablemodel.getValueAt(eachRecord,5)));
-               PostalTextfield.setText(String.valueOf(customertablemodel.getValueAt(eachRecord,6)));
-               Phone1CustomersTextfield.setText(String.valueOf(customertablemodel.getValueAt(eachRecord,7)));
-               Phone2CustomersTextfield.setText(String.valueOf(customertablemodel.getValueAt(eachRecord, 8)));
-               EmailCustomersTextfield.setText(String.valueOf(customertablemodel.getValueAt(eachRecord,9)));
+               customerIdCustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,0)));
+               firstNameCustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,1)));
+               lastNameCustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,2)));
+               addressCustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,3)));
+               cityCustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,4)));
+               countryCustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,5)));
+               postalTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,6)));
+               phone1CustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,7)));
+               phone2CustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord, 8)));
+               emailCustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,9)));
            }
 
            @Override
@@ -434,17 +439,17 @@ public class Client {
        });
     }
     private void reviewTableListener(){
-        Reviewstable.addMouseListener(new MouseListener() {
+        reviewsTable.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int eachRecord = Reviewstable.rowAtPoint(e.getPoint());
+                int eachRecord = reviewsTable.rowAtPoint(e.getPoint());
 
-                ReviewIdReviwsTextfield.setText(String.valueOf(reviewtablemodel.getValueAt(eachRecord, 0)));
-                CustomerIDReviewsTextfield.setText(String.valueOf(reviewtablemodel.getValueAt(eachRecord,1)));
-                WineIdReviewsTexfield.setText(String.valueOf(reviewtablemodel.getValueAt(eachRecord,2)));
-                CustomerDescripReviewsTextfield.setText(String.valueOf(reviewtablemodel.getValueAt(eachRecord,3)));
-                CustomerRatingReviewsTextfield.setText(String.valueOf(reviewtablemodel.getValueAt(eachRecord,4)));
-                DateAddedReviewTextfield.setText(String.valueOf(reviewtablemodel.getValueAt(eachRecord,5)));
+                reviewIdReviewsTextField.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord, 0)));
+                customerIdReviewsTextField.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord,1)));
+                wineIdReviewsTextField.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord,2)));
+                customerDescriptionReviewsTextField.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord,3)));
+                customerRatingReviewsTextField.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord,4)));
+                dateAddedReviewTextField.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord,5)));
             }
 
             @Override
@@ -473,6 +478,62 @@ public class Client {
 
     }
 
+    private void addWineRow(){
+        Wine newWine = new Wine();
+
+          //  newWine.setWine_id(Integer.parseInt(wineIdTextField.getText()));
+            newWine.setCountry(countryWinesTextField.getText());
+            newWine.setDescription(descriptionWinesTextField.getText());
+            newWine.setDesignation(designationWinesTextField.getText());
+            newWine.setPoints(Integer.parseInt(pointsWinesTextField.getText()));
+            newWine.setPrice(Integer.parseInt(pointsWinesTextField.getText()));
+            newWine.setProvince((provinceWinesTextField.getText()));
+            newWine.setRegion_1(region1WinesTextField.getText());
+            newWine.setRegion_2(region2WinesTextField.getText());
+            newWine.setTasterName(tasterNameWinesTextField.getText());
+            newWine.setTasterTwitterHandle(tasterTwitterHandleWinesTextField.getText());
+            newWine.setTitle(titleWinesTextField.getText());
+            newWine.setVariety(varietyWinesTextField.getText());
+            newWine.setYear(Integer.parseInt(yearWinesTextField.getText()));
+
+            if(objectOutputStream != null && objectInputStream != null){
+                //send data
+                try{
+                    objectOutputStream.writeObject(new Parcel(Command.ADD,TableSelection.WINE, newWine));
+                }
+                catch(IOException e){
+                    System.out.println("IO Exception" + e);
+                }
+               //receive reply
+                Parcel reply =null;
+                System.out.println("Waiting for reply from server");
+                try{
+                    reply = (Parcel) objectInputStream.readObject();
+                    System.out.println("Reply received");
+                }
+                catch(IOException e){
+                    System.out.println("IO Exception" + e);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                if (reply != null) {
+
+                    try {
+
+                        System.out.println(reply);
+
+                    } catch (NullPointerException ex) {
+
+                        Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } else {
+                System.out.println("You must connect to the server first!!");
+
+            }
+
+
+    }
 
     public static void main(String[] args){
         Client obj = new Client();

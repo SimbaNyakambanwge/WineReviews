@@ -24,9 +24,7 @@ public class ClientHandler implements Runnable {
 
     private final Socket socket;
 //    private final HashMap<String, String> hashMapNames;
-//
-//    private final PrintWriter printWriter;
-//    private final BufferedReader bufferedReader;
+
 
     private static int connectionCount = 0;
     private final int connectionNumber;
@@ -42,13 +40,12 @@ public class ClientHandler implements Runnable {
     public ClientHandler(Socket socket) throws IOException {
         this.socket = socket;
        // this.hashMapNames = hashMapNames;
-
        // printWriter = new PrintWriter(socket.getOutputStream(), true);
        // bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
         connectionCount++;
         connectionNumber = connectionCount;
-        threadSays("Connection " + connectionNumber + " established.");
+        threadSays("Connection " + " "+ connectionNumber+"  " + " to server established.");
     }
 
     /**
@@ -62,7 +59,7 @@ public class ClientHandler implements Runnable {
         try (
             // Read and process names until an exception is thrown.
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-            ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+            ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream())
         )
         {
             threadSays("Connection" + connectionCount + " To the server");
@@ -89,6 +86,12 @@ public class ClientHandler implements Runnable {
                     reply = (ArrayList<Reviews>) Server.getReviews();
 
                     objectOutputStream.writeObject(reply);
+                }
+               else if(parcelRead.getCommand()== Command.ADD && parcelRead.getTable()==TableSelection.WINE)
+               {
+                   Wine wine = new Wine();
+                    objectOutputStream.writeObject(new Parcel());
+                    Server.addWinesRow((Wine) parcelRead.getObj());
                 }
             }
         } catch (IOException ex) {

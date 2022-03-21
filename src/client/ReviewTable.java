@@ -1,8 +1,8 @@
 package client;
 
-import both.Customers;
+
 import both.Reviews;
-import both.Wine;
+
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
@@ -79,7 +79,5 @@ public class ReviewTable extends AbstractTableModel {
         super.fireTableRowsDeleted(firstRow, lastRow);
     }
 
-    public void removeRow (int rowIndex) {
-        Reviewdetails.remove(rowIndex);
-    }
+
 }

@@ -1,7 +1,7 @@
 package client;
 
 import both.Customers;
-import both.Wine;
+
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
@@ -81,7 +81,5 @@ public class CustomerTable extends AbstractTableModel {
         super.fireTableRowsDeleted(firstRow, lastRow);
     }
 
-    public void removeRow (int rowIndex) {
-        Customerdetails.remove(rowIndex);
-    }
+
 }

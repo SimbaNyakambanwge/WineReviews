@@ -77,9 +77,9 @@
                   <text value="Get Table"/>
                 </properties>
               </component>
-              <component id="66578" class="javax.swing.JTextField" binding="TitleWinestextfield">
+              <component id="66578" class="javax.swing.JTextField" binding="titleWinesTextField">
                 <constraints>
-                  <grid row="24" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="24" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -87,25 +87,25 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="70def" class="javax.swing.JTextField" binding="YearWinesTextfield">
+              <component id="70def" class="javax.swing.JTextField" binding="yearWinesTextField">
                 <constraints>
-                  <grid row="30" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="30" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
                 <properties/>
               </component>
-              <component id="3a8af" class="javax.swing.JTextField" binding="WineryTextfield">
+              <component id="3a8af" class="javax.swing.JTextField" binding="wineryTextField">
                 <constraints>
-                  <grid row="28" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="28" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
                 <properties/>
               </component>
-              <component id="edbd2" class="javax.swing.JTextField" binding="TastertwitterHandleWinesTextfiled">
+              <component id="edbd2" class="javax.swing.JTextField" binding="tasterTwitterHandleWinesTextField">
                 <constraints>
-                  <grid row="22" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="22" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -113,9 +113,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="10c67" class="javax.swing.JTextField" binding="DesignationWinesTextfield">
+              <component id="10c67" class="javax.swing.JTextField" binding="designationWinesTextField">
                 <constraints>
-                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -123,9 +123,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="2a3ca" class="javax.swing.JTextField" binding="WineIdTextfield">
+              <component id="2a3ca" class="javax.swing.JTextField" binding="wineIdTextField">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -133,9 +133,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="4c05f" class="javax.swing.JTextField" binding="ProvinceWinesTextfield">
+              <component id="4c05f" class="javax.swing.JTextField" binding="provinceWinesTextField">
                 <constraints>
-                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -143,9 +143,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="4366f" class="javax.swing.JTextField" binding="VarietyWinesTextfield">
+              <component id="4366f" class="javax.swing.JTextField" binding="varietyWinesTextField">
                 <constraints>
-                  <grid row="26" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="26" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -153,9 +153,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="4213b" class="javax.swing.JTextField" binding="CountryWinesTextfield">
+              <component id="4213b" class="javax.swing.JTextField" binding="countryWinesTextField">
                 <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -163,9 +163,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="48d3c" class="javax.swing.JTextField" binding="DescriptionWinesTextfield">
+              <component id="48d3c" class="javax.swing.JTextField" binding="descriptionWinesTextField">
                 <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -173,9 +173,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="ab6bd" class="javax.swing.JTextField" binding="PointsWinesTextfield">
+              <component id="ab6bd" class="javax.swing.JTextField" binding="pointsWinesTextField">
                 <constraints>
-                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -183,9 +183,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="696f9" class="javax.swing.JTextField" binding="Region1WinesTextfield">
+              <component id="696f9" class="javax.swing.JTextField" binding="region1WinesTextField">
                 <constraints>
-                  <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -193,9 +193,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="c559d" class="javax.swing.JTextField" binding="PriceWinesTextfield">
+              <component id="c559d" class="javax.swing.JTextField" binding="priceWinesTextField">
                 <constraints>
-                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -203,9 +203,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="f6bee" class="javax.swing.JTextField" binding="Region2WinestTextfield">
+              <component id="f6bee" class="javax.swing.JTextField" binding="region2WinesTextField">
                 <constraints>
-                  <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -213,9 +213,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="38eaa" class="javax.swing.JTextField" binding="TasterNameWinestextfield">
+              <component id="38eaa" class="javax.swing.JTextField" binding="tasterNameWinesTextField">
                 <constraints>
-                  <grid row="20" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="20" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -350,7 +350,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="469c0" class="javax.swing.JTable" binding="Winestable1">
+                  <component id="469c0" class="javax.swing.JTable" binding="winesTable1">
                     <constraints/>
                     <properties/>
                   </component>
@@ -398,7 +398,7 @@
                   <text value="Print"/>
                 </properties>
               </component>
-              <component id="11046" class="javax.swing.JButton" binding="AddCustomersTextfield">
+              <component id="11046" class="javax.swing.JButton" binding="addCustomersTextField">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -416,9 +416,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="d738c" class="javax.swing.JTextField" binding="EmailCustomersTextfield">
+              <component id="d738c" class="javax.swing.JTextField" binding="emailCustomersTextField">
                 <constraints>
-                  <grid row="20" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="20" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -426,9 +426,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="3e325" class="javax.swing.JTextField" binding="Phone2CustomersTextfield">
+              <component id="3e325" class="javax.swing.JTextField" binding="phone2CustomersTextField">
                 <constraints>
-                  <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -436,9 +436,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="d0929" class="javax.swing.JTextField" binding="Phone1CustomersTextfield">
+              <component id="d0929" class="javax.swing.JTextField" binding="phone1CustomersTextField">
                 <constraints>
-                  <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -446,9 +446,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="bd40d" class="javax.swing.JTextField" binding="CustomerIdCustomersTextfield">
+              <component id="bd40d" class="javax.swing.JTextField" binding="customerIdCustomersTextField">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -456,9 +456,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="cebfd" class="javax.swing.JTextField" binding="PostalTextfield">
+              <component id="cebfd" class="javax.swing.JTextField" binding="postalTextField">
                 <constraints>
-                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -466,9 +466,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="21097" class="javax.swing.JTextField" binding="CityCustomersTextfield">
+              <component id="21097" class="javax.swing.JTextField" binding="cityCustomersTextField">
                 <constraints>
-                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -476,9 +476,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="84aa0" class="javax.swing.JTextField" binding="LastnameCustomersTextfield">
+              <component id="84aa0" class="javax.swing.JTextField" binding="lastNameCustomersTextField">
                 <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -486,9 +486,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="7d6fc" class="javax.swing.JTextField" binding="FirstnameCustomersTextfield">
+              <component id="7d6fc" class="javax.swing.JTextField" binding="firstNameCustomersTextField">
                 <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -496,9 +496,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="5c1fc" class="javax.swing.JTextField" binding="AddressCustomersTextfield">
+              <component id="5c1fc" class="javax.swing.JTextField" binding="addressCustomersTextField">
                 <constraints>
-                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -506,9 +506,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="927b3" class="javax.swing.JTextField" binding="CountryCustomersTextfield">
+              <component id="927b3" class="javax.swing.JTextField" binding="countryCustomersTextField">
                 <constraints>
-                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -556,7 +556,7 @@
                   <text value="City"/>
                 </properties>
               </component>
-              <component id="d8dc2" class="javax.swing.JLabel" binding="Countrylabel">
+              <component id="d8dc2" class="javax.swing.JLabel" binding="countryLabel">
                 <constraints>
                   <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -603,7 +603,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="fcd88" class="javax.swing.JTable" binding="Customertable">
+                  <component id="fcd88" class="javax.swing.JTable" binding="customerTable">
                     <constraints/>
                     <properties/>
                   </component>
@@ -650,7 +650,7 @@
                   <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Edit"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="d2e3e" class="javax.swing.JButton" binding="AddReviews">
@@ -661,7 +661,7 @@
                   <text value="Add"/>
                 </properties>
               </component>
-              <component id="6a750" class="javax.swing.JButton" binding="GetTablleReviews">
+              <component id="6a750" class="javax.swing.JButton" binding="getTableReviews">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -669,9 +669,9 @@
                   <text value="GetTable"/>
                 </properties>
               </component>
-              <component id="f6b02" class="javax.swing.JTextField" binding="CustomerRatingReviewsTextfield">
+              <component id="f6b02" class="javax.swing.JTextField" binding="customerRatingReviewsTextField">
                 <constraints>
-                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -679,9 +679,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="9b691" class="javax.swing.JTextField" binding="DateAddedReviewTextfield">
+              <component id="9b691" class="javax.swing.JTextField" binding="dateAddedReviewTextField">
                 <constraints>
-                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -689,9 +689,19 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="6c532" class="javax.swing.JTextField" binding="CustomerDescripReviewsTextfield">
+              <component id="6c532" class="javax.swing.JTextField" binding="customerDescriptionReviewsTextField">
                 <constraints>
-                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="10"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="d3d78" class="javax.swing.JTextField" binding="wineIdReviewsTextField">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -699,9 +709,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="d3d78" class="javax.swing.JTextField" binding="WineIdReviewsTexfield">
+              <component id="d641a" class="javax.swing.JTextField" binding="reviewIdReviewsTextField">
                 <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -709,19 +719,9 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="d641a" class="javax.swing.JTextField" binding="ReviewIdReviwsTextfield">
+              <component id="714e7" class="javax.swing.JTextField" binding="customerIdReviewsTextField">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <text value=""/>
-                </properties>
-              </component>
-              <component id="714e7" class="javax.swing.JTextField" binding="CustomerIDReviewsTextfield">
-                <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
@@ -761,7 +761,7 @@
                   <text value="Customer Description"/>
                 </properties>
               </component>
-              <component id="4e629" class="javax.swing.JLabel" binding="CustomerratingReviewsLabel">
+              <component id="4e629" class="javax.swing.JLabel" binding="customerRatingReviewsLabel">
                 <constraints>
                   <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -769,7 +769,7 @@
                   <text value="Customer Rating"/>
                 </properties>
               </component>
-              <component id="6212c" class="javax.swing.JLabel" binding="DateaddedLabel">
+              <component id="6212c" class="javax.swing.JLabel" binding="dateAddedLabel">
                 <constraints>
                   <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -784,7 +784,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="24111" class="javax.swing.JTable" binding="Reviewstable">
+                  <component id="24111" class="javax.swing.JTable" binding="reviewsTable">
                     <constraints/>
                     <properties/>
                   </component>
