@@ -61,7 +61,6 @@ public class Client {
     private JTextField reviewIdReviewsTextField;
     private JTextField customerIdReviewsTextField;
     private JTextField wineIdReviewsTextField;
-    private JTextField customerDescriptionReviewsTextField;
     private JTextField customerRatingReviewsTextField;
     private JTextField dateAddedReviewTextField;
     private JLabel WineIDLabel;
@@ -104,6 +103,7 @@ public class Client {
     private JPanel CustomersJPanel;
     private JPanel ReviewsJPanel;
     private JButton addCustomersButton;
+    private JTextArea reviewsDescriptionTextArea;
     private JScrollPane wineScroll;
     //endregion
 
@@ -214,6 +214,14 @@ public class Client {
             public void actionPerformed(ActionEvent e) {
                 addCustomerRow();
                 getCustomerTable();
+            }
+        });
+
+        AddReviews.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addReviewRow();
+                getReviewTable();
             }
         });
     }
@@ -454,7 +462,7 @@ public class Client {
                 reviewIdReviewsTextField.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord, 0)));
                 customerIdReviewsTextField.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord,1)));
                 wineIdReviewsTextField.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord,2)));
-                customerDescriptionReviewsTextField.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord,3)));
+                reviewsDescriptionTextArea.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord,3)));
                 customerRatingReviewsTextField.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord,4)));
                 dateAddedReviewTextField.setText(String.valueOf(reviewTableModel.getValueAt(eachRecord,5)));
             }
@@ -589,6 +597,51 @@ public class Client {
 
         }
 
+    }
+    private void addReviewRow(){
+       Reviews newReviews = new Reviews();
+
+       newReviews.setCustomer_id(Integer.parseInt(customerIdReviewsTextField.getText()));
+       newReviews.setWine_id(Integer.parseInt(wineIdReviewsTextField.getText()));
+       newReviews.setCustomerDescription(reviewsDescriptionTextArea.getText());
+       newReviews.setCustomerRating(Integer.parseInt(customerRatingReviewsTextField.getText()));
+       newReviews.setDateAdded(dateAddedReviewTextField.getText());
+
+        if(objectOutputStream != null && objectInputStream != null){
+            //send data
+            try{
+                objectOutputStream.writeObject(new Parcel(Command.ADD,TableSelection.REVIEWS, newReviews));
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            }
+            //receive reply
+            Parcel reply =null;
+            System.out.println("Waiting for reply from server");
+            try{
+                reply = (Parcel) objectInputStream.readObject();
+                System.out.println("Reply received");
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (reply != null) {
+
+                try {
+
+                    System.out.println(reply);
+
+                } catch (NullPointerException ex) {
+
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+            System.out.println("You must connect to the server first!!");
+
+        }
     }
 
     public static void main(String[] args){

@@ -136,20 +136,5 @@ public class Customers implements Serializable {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Customers{"+
-                "customer_id:" + customer_id+
-                ", first_name:" + firstName + '\''+
-                ",last_name:"+ lastName + '\''+
-                ",address:"+ address + '\''+
-                ",city:"+ city +'\''+
-                " ,county:"+ country + '\''+
-                " ,postal:"+ postal +'\''+
-                " ,phone1:"+ phone1 +'\''+
-                ",phone2:"+ phone2 +'\''+
-                ",email:" + email +
-                '}';
-    }
 
 }

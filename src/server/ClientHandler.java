@@ -97,6 +97,11 @@ public class ClientHandler implements Runnable {
                    objectOutputStream.writeObject(new Parcel());
                    Server.addCustomersRow((Customers) parcelRead.getObj());
                }
+               else if(parcelRead.getCommand()==Command.ADD && parcelRead.getTable()==TableSelection.REVIEWS)
+               {
+                  objectOutputStream.writeObject(new Parcel());
+                  Server.addReviewsRow((Reviews) parcelRead.getObj());
+               }
             }
         } catch (IOException ex) {
             Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);

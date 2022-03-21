@@ -188,24 +188,5 @@ public class Wine implements Serializable {
         this.year = year;
     }
 
-    @Override
-    public String toString() {
-        return "Wines{"+
-                "wine_Id:" + wine_id+
-                ", country:" + country + '\''+
-                ",description:"+ description + '\''+
-                ",designation:"+ designation + '\''+
-                ",points:"+ points +'\''+
-                ",price:"+ price + '\''+
-                "province:"+ province +'\''+
-                "region_1"+ region_1 +'\''+
-                "region_2"+region_2 +'\''+
-                "tasterName" + tasterName + '\''+
-                "tasterTwitterHandle" + tasterTwitterHandle + '\''+
-                "title"+ title + '\''+
-                "variety"+ variety+'\''+
-                "winery"+ winery + '\''+
-                "year" + year +
-                '}';
-    }
+
 }

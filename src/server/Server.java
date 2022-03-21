@@ -142,6 +142,26 @@ public class Server {
         }
    }
 
+   public static void addReviewsRow(Reviews reviews){
+        String sql = "INSERT INTO CustomerReviews (customer_id, wine_id, customer_description, customer_rating, date_added)" +
+                "VALUES(?,?,?,?,?)";
+
+        try(Connection conn = ConnectionFactory.getConnection(); PreparedStatement prep = conn.prepareStatement(sql)){
+
+            prep.setInt(1,reviews.getCustomer_id());
+            prep.setInt(2,reviews.getWine_id());
+            prep.setString(3, reviews.getCustomerDescription());
+            prep.setInt(4, reviews.getCustomerRating());
+            prep.setString(5,reviews.getDateAdded());
+
+            prep.execute();
+
+        }
+        catch(SQLException e){
+            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, e);
+        }
+   }
+
     /**
      * Wait until a client connects to the server on a port, then establish the
      * connection via a socket object and create a thread to handle requests.
