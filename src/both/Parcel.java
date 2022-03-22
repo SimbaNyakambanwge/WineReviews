@@ -6,16 +6,16 @@ public class Parcel implements Serializable {
 
     private Command command;
     private TableSelection table;
-    private Object obj;
+    private Object object;
 
     public Parcel(){
 
     }
 
-    public Parcel(Command command, TableSelection table, Object obj) {
+    public Parcel(Command command, TableSelection table, Object object) {
         this.command = command;
         this.table = table;
-        this.obj = obj;
+        this.object = object;
     }
 
     public Command getCommand() {
@@ -34,11 +34,11 @@ public class Parcel implements Serializable {
         this.table = table;
     }
 
-    public Object getObj() {
-        return obj;
+    public Object getObject() {
+        return object;
     }
 
-    public void setObj(Object obj) {
-        this.obj = obj;
+    public void setObject(Object object) {
+        this.object = object;
     }
 }

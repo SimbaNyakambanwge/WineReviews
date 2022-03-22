@@ -162,6 +162,44 @@ public class Server {
         }
    }
 
+   public static void removeWinesRow(Wine wine){
+        String sql = "DELETE FROM Wines WHERE Wine_id=?";
+
+       try(Connection conn = ConnectionFactory.getConnection();PreparedStatement prep = conn.prepareStatement(sql)){
+           prep.setInt(1, wine.getWine_id());
+
+           prep.execute();
+       }
+       catch(SQLException e){
+           Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, e);
+       }
+
+   }
+
+   public static void removeCustomersRow(Customers customers){
+        String sql = "DELETE FROM Customers WHERE customer_id=?";
+
+       try(Connection conn = ConnectionFactory.getConnection();PreparedStatement prep = conn.prepareStatement(sql)){
+           prep.setInt(1, customers.getCustomer_id());
+           prep.execute();
+       }
+       catch(SQLException e){
+           Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, e);
+       }
+   }
+
+   public static void removeReviewsRow(Reviews reviews){
+        String sql = "DELETE FROM CustomerReviews WHERE review_id=?";
+
+       try(Connection conn = ConnectionFactory.getConnection();PreparedStatement prep = conn.prepareStatement(sql)){
+           prep.setInt(1, reviews.getReview_id());
+           prep.execute();
+       }
+       catch(SQLException e){
+           Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, e);
+       }
+   }
+
     /**
      * Wait until a client connects to the server on a port, then establish the
      * connection via a socket object and create a thread to handle requests.

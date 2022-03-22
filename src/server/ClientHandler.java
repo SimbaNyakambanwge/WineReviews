@@ -39,10 +39,6 @@ public class ClientHandler implements Runnable {
      */
     public ClientHandler(Socket socket) throws IOException {
         this.socket = socket;
-       // this.hashMapNames = hashMapNames;
-       // printWriter = new PrintWriter(socket.getOutputStream(), true);
-       // bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
         connectionCount++;
         connectionNumber = connectionCount;
         threadSays("Connection " + " "+ connectionNumber+"  " + " to server established.");
@@ -90,17 +86,29 @@ public class ClientHandler implements Runnable {
                else if(parcelRead.getCommand()== Command.ADD && parcelRead.getTable()==TableSelection.WINE)
                {
                     objectOutputStream.writeObject(new Parcel());
-                    Server.addWinesRow((Wine) parcelRead.getObj());
+                    Server.addWinesRow((Wine) parcelRead.getObject());
                }
                else if(parcelRead.getCommand()==Command.ADD && parcelRead.getTable()==TableSelection.CUSTOMERS)
                {
                    objectOutputStream.writeObject(new Parcel());
-                   Server.addCustomersRow((Customers) parcelRead.getObj());
+                   Server.addCustomersRow((Customers) parcelRead.getObject());
                }
                else if(parcelRead.getCommand()==Command.ADD && parcelRead.getTable()==TableSelection.REVIEWS)
                {
                   objectOutputStream.writeObject(new Parcel());
-                  Server.addReviewsRow((Reviews) parcelRead.getObj());
+                  Server.addReviewsRow((Reviews) parcelRead.getObject());
+               }
+               else if(parcelRead.getCommand()==Command.REMOVE && parcelRead.getTable()==TableSelection.WINE){
+                   objectOutputStream.writeObject(new Parcel());
+                   Server.removeWinesRow((Wine)parcelRead.getObject());
+               }
+               else if(parcelRead.getCommand()==Command.REMOVE && parcelRead.getTable()==TableSelection.CUSTOMERS){
+                   objectOutputStream.writeObject(new Parcel());
+                   Server.removeCustomersRow((Customers)parcelRead.getObject());
+               }
+               else if(parcelRead.getCommand()==Command.REMOVE && parcelRead.getTable()==TableSelection.REVIEWS){
+                   objectOutputStream.writeObject(new Parcel());
+                   Server.removeReviewsRow((Reviews) parcelRead.getObject());
                }
             }
         } catch (IOException ex) {

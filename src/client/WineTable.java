@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class WineTable extends AbstractTableModel {
 
-    private final String[] columnNames = {"wine_id", "country", "description", " designantion", "points", "price", "province",
-            "region_1", "region_2", "tasterName", " tastertwitterhandle", "title", "variety", "winery", "year"};
+    private final String[] columnNames = {"wine_id", "country", "description", " designation", "points", "price", "province",
+            "region_1", "region_2", "tasterName", " taster_twitter_handle", "title", "variety", "winery", "year"};
 
     private final ArrayList<Object[]> Winedetails = new ArrayList<>();
 

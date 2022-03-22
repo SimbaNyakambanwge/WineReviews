@@ -224,6 +224,28 @@ public class Client {
                 getReviewTable();
             }
         });
+
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                removeWineRow();
+                getReviewTable();
+            }
+        });
+
+        DeleteCustomers.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                removeCustomerRow();
+            }
+        });
+
+        DeleteReviews.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                removeReviewRow();
+            }
+        });
     }
 
     private void getReviewTable() {
@@ -261,7 +283,6 @@ public class Client {
             }
         }
     }
-
     private void getCustomerTable() {
         if(objectOutputStream !=null && objectInputStream !=null) {
             Customers newCustomer = new Customers();
@@ -297,7 +318,6 @@ public class Client {
             }
         }
     }
-
     private void getWineTable(){
         if(objectOutputStream !=null && objectInputStream !=null) {
             Wine newWine = new Wine();
@@ -493,7 +513,7 @@ public class Client {
 
     }
 
-    private void addWineRow(){
+    private void addWineRow() {
         Wine newWine = new Wine();
             //  newWine.setWine_id(Integer.parseInt(wineIdTextField.getText()));
             newWine.setCountry(countryWinesTextField.getText());
@@ -611,6 +631,132 @@ public class Client {
             //send data
             try{
                 objectOutputStream.writeObject(new Parcel(Command.ADD,TableSelection.REVIEWS, newReviews));
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            }
+            //receive reply
+            Parcel reply =null;
+            System.out.println("Waiting for reply from server");
+            try{
+                reply = (Parcel) objectInputStream.readObject();
+                System.out.println("Reply received");
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (reply != null) {
+
+                try {
+
+                    System.out.println(reply);
+
+                } catch (NullPointerException ex) {
+
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+            System.out.println("You must connect to the server first!!");
+
+        }
+    }
+
+    private void removeWineRow(){
+        Wine newWine = new Wine();
+
+        newWine.setWine_id(Integer.parseInt(wineIdTextField.getText()));
+
+        if(objectOutputStream != null && objectInputStream != null){
+            //send data
+            try{
+                objectOutputStream.writeObject(new Parcel(Command.REMOVE,TableSelection.WINE, newWine));
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            }
+            //receive reply
+            Parcel reply =null;
+            System.out.println("Waiting for reply from server");
+            try{
+                reply = (Parcel) objectInputStream.readObject();
+                System.out.println("Reply received");
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (reply != null) {
+
+                try {
+
+                    System.out.println(reply);
+
+                } catch (NullPointerException ex) {
+
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+            System.out.println("You must connect to the server first!!");
+
+        }
+    }
+    private void removeCustomerRow(){
+        Customers newCustomers = new Customers();
+
+        newCustomers.setCustomer_id(Integer.parseInt(customerIdCustomersTextField.getText()));
+
+
+        if(objectOutputStream != null && objectInputStream != null){
+            //send data
+            try{
+                objectOutputStream.writeObject(new Parcel(Command.REMOVE,TableSelection.CUSTOMERS, newCustomers));
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            }
+            //receive reply
+            Parcel reply =null;
+            System.out.println("Waiting for reply from server");
+            try{
+                reply = (Parcel) objectInputStream.readObject();
+                System.out.println("Reply received");
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (reply != null) {
+
+                try {
+
+                    System.out.println(reply);
+
+                } catch (NullPointerException ex) {
+
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+            System.out.println("You must connect to the server first!!");
+
+        }
+
+    }
+    private void removeReviewRow(){
+        Reviews newReviews = new Reviews();
+
+        newReviews.setReview_id(Integer.parseInt(reviewIdReviewsTextField.getText()));
+
+        if(objectOutputStream != null && objectInputStream != null){
+            //send data
+            try{
+                objectOutputStream.writeObject(new Parcel(Command.REMOVE,TableSelection.REVIEWS, newReviews));
             }
             catch(IOException e){
                 System.out.println("IO Exception" + e);
