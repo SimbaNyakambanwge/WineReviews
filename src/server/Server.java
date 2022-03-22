@@ -89,7 +89,7 @@ public class Server {
         return record;
     }
 
-   public static void addWinesRow(Wine wine) {
+    public static void addWinesRow(Wine wine) {
 
         String sql = "INSERT INTO Wines ( Country, Description, Designation, Points, Price, Province, Region_1, Region_2, Taster_Name, Taster_Twitter_Handle, Title, Variety, Winery, Year)"
                + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
