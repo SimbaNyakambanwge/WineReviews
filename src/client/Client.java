@@ -237,6 +237,7 @@ public class Client {
             @Override
             public void actionPerformed(ActionEvent e) {
                 removeCustomerRow();
+                getCustomerTable();
             }
         });
 
@@ -244,6 +245,15 @@ public class Client {
             @Override
             public void actionPerformed(ActionEvent e) {
                 removeReviewRow();
+                getReviewTable();
+            }
+        });
+
+        editButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateWineRow();
+                getWineTable();
             }
         });
     }
@@ -788,6 +798,63 @@ public class Client {
             System.out.println("You must connect to the server first!!");
 
         }
+    }
+
+    private void updateWineRow(){
+        Wine newWine = new Wine();
+
+        newWine.setWine_id(Integer.parseInt(wineIdTextField.getText()));
+
+        newWine.setCountry(countryWinesTextField.getText());
+        newWine.setDescription(descriptionWinesTextField.getText());
+        newWine.setDesignation(designationWinesTextField.getText());
+        newWine.setPoints(Integer.parseInt(pointsWinesTextField.getText()));
+        newWine.setPrice(Integer.parseInt(priceWinesTextField.getText()));
+        newWine.setProvince((provinceWinesTextField.getText()));
+        newWine.setRegion_1(region1WinesTextField.getText());
+        newWine.setRegion_2(region2WinesTextField.getText());
+        newWine.setTasterName(tasterNameWinesTextField.getText());
+        newWine.setTasterTwitterHandle(tasterTwitterHandleWinesTextField.getText());
+        newWine.setTitle(titleWinesTextField.getText());
+        newWine.setVariety(varietyWinesTextField.getText());
+        newWine.setYear(Integer.parseInt(yearWinesTextField.getText()));
+
+        if(objectOutputStream != null && objectInputStream != null){
+            //send data
+            try{
+                objectOutputStream.writeObject(new Parcel(Command.EDIT,TableSelection.WINE, newWine));
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            }
+            //receive reply
+            Parcel reply =null;
+            System.out.println("Waiting for reply from server");
+            try{
+                reply = (Parcel) objectInputStream.readObject();
+                System.out.println("Reply received");
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (reply != null) {
+
+                try {
+
+                    System.out.println(reply);
+
+                } catch (NullPointerException ex) {
+
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+            System.out.println("You must connect to the server first!!");
+
+        }
+
     }
 
     public static void main(String[] args){

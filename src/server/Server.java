@@ -200,6 +200,34 @@ public class Server {
        }
    }
 
+   public static void updateWinesRow(Wine wine){
+        String sql = "UPDATE wines SET Country= ?, Description= ?, Designation= ?, Points= ?, Price= ?, Province= ?, Region_1= ?, Region_2= ?, Taster_Name= ?, Taster_Twitter_Handle= ?,Title= ?, Variety= ?, Winery= ?, Year= ? WHERE Wine_id= ?";
+       try(Connection conn = ConnectionFactory.getConnection();PreparedStatement prep = conn.prepareStatement(sql)){
+
+           prep.setString(1,wine.getCountry());
+           prep.setString(2, wine.getDescription());
+           prep.setString(3, wine.getDesignation());
+           prep.setInt(4, wine.getPoints());
+           prep.setInt(5, wine.getPrice());
+           prep.setString(6, wine.getProvince() );
+           prep.setString(7, wine.getRegion_1());
+           prep.setString(8, wine.getRegion_2());
+           prep.setString(9,wine.getTasterName());
+           prep.setString(10, wine.getTasterTwitterHandle());
+           prep.setString(11, wine.getTitle());
+           prep.setString(12, wine.getVariety());
+           prep.setString(13, wine.getWinery());
+           prep.setInt(14, wine.getYear());
+           prep.setInt(15, wine.getWine_id());
+
+           prep.execute();
+       }
+       catch(SQLException e){
+           Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, e);
+       }
+
+   }
+
     /**
      * Wait until a client connects to the server on a port, then establish the
      * connection via a socket object and create a thread to handle requests.
