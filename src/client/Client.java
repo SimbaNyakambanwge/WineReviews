@@ -53,7 +53,7 @@ public class Client {
     private JTextField lastNameCustomersTextField;
     private JTextField addressCustomersTextField;
     private JTextField cityCustomersTextField;
-    private JTextField countryCustomersTextField;
+    private JTextField countyCustomersTextField;
     private JTextField postalTextField;
     private JTextField phone1CustomersTextField;
     private JTextField phone2CustomersTextField;
@@ -256,6 +256,14 @@ public class Client {
                 getWineTable();
             }
         });
+
+        EditCustomers.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateCustomerRow();
+                getCustomerTable();
+            }
+        });
     }
 
     private void getReviewTable() {
@@ -455,7 +463,7 @@ public class Client {
                lastNameCustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,2)));
                addressCustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,3)));
                cityCustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,4)));
-               countryCustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,5)));
+               countyCustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,5)));
                postalTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,6)));
                phone1CustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord,7)));
                phone2CustomersTextField.setText(String.valueOf(customerTableModel.getValueAt(eachRecord, 8)));
@@ -585,7 +593,7 @@ public class Client {
        newCustomers.setLastName(lastNameCustomersTextField.getText());
        newCustomers.setAddress(addressCustomersTextField.getText());
        newCustomers.setCity(cityCustomersTextField.getText());
-       newCustomers.setCountry(countryCustomersTextField.getText());
+       newCustomers.setCountry(countyCustomersTextField.getText());
        newCustomers.setPostal(postalTextField.getText());
        newCustomers.setPhone1(Integer.parseInt(phone1CustomersTextField.getText()));
        newCustomers.setPhone2(Integer.parseInt(phone2CustomersTextField.getText()));
@@ -855,6 +863,57 @@ public class Client {
 
         }
 
+    }
+
+    private void updateCustomerRow(){
+        Customers newCustomers = new Customers();
+
+        newCustomers.setCustomer_id(Integer.parseInt(customerIdCustomersTextField.getText()));
+        newCustomers.setFirstName(firstNameCustomersTextField.getText());
+        newCustomers.setLastName(lastNameCustomersTextField.getText());
+        newCustomers.setAddress(addressCustomersTextField.getText());
+        newCustomers.setCity(cityCustomersTextField.getText());
+        newCustomers.setCountry(countyCustomersTextField.getText());
+        newCustomers.setPhone1(Integer.parseInt(phone1CustomersTextField.getText()));
+        newCustomers.setPostal(postalTextField.getText());
+        newCustomers.setPhone2(Integer.parseInt(phone2CustomersTextField.getText()));
+        newCustomers.setEmail(emailCustomersTextField.getText());
+
+        if(objectOutputStream != null && objectInputStream != null){
+            //send data to the server
+            try{
+                objectOutputStream.writeObject(new Parcel(Command.EDIT,TableSelection.CUSTOMERS, newCustomers));
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            }
+            //receive reply
+            Parcel reply =null;
+            System.out.println("Waiting for reply from server");
+            try{
+                reply = (Parcel) objectInputStream.readObject();
+                System.out.println("Reply received");
+            }
+            catch(IOException e){
+                System.out.println("IO Exception" + e);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (reply != null) {
+
+                try {
+
+                    System.out.println(reply);
+
+                } catch (NullPointerException ex) {
+
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+            System.out.println("You must connect to the server first!!");
+
+        }
     }
 
     public static void main(String[] args){

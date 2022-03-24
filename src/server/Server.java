@@ -227,6 +227,28 @@ public class Server {
        }
 
    }
+   public static void updateCustomersRow(Customers customers){
+       String sql = "UPDATE customers SET First_Name=?, Last_Name=?, Address=?, City=?, County=?, Postal=?, Phone1=?, Phone2=?, Email=? WHERE Customer_Id= ?";
+
+       try(Connection conn = ConnectionFactory.getConnection(); PreparedStatement prep = conn.prepareStatement(sql)){
+
+           prep.setString(1, customers.getFirstName());
+           prep.setString(2, customers.getLastName());
+           prep.setString(3, customers.getAddress());
+           prep.setString(4, customers.getCity());
+           prep.setString(5, customers.getCountry());
+           prep.setString(6, customers.getPostal());
+           prep.setInt(7, customers.getPhone1());
+           prep.setInt(8, customers.getPhone2());
+           prep.setString(9, customers.getEmail());
+           prep.setInt(10, customers.getCustomer_id());
+
+           prep.execute();
+       }
+       catch(SQLException e){
+           Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, e);
+       }
+   }
 
     /**
      * Wait until a client connects to the server on a port, then establish the
