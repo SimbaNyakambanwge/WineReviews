@@ -4,7 +4,7 @@ package client;
 import both.Reviews;
 
 
-import javax.swing.event.TableModelListener;
+
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ public class ReviewTable extends AbstractTableModel {
     private final String[] columnNames = {"review_id", "customer_id", "wine_id", "customer description",
             "customer rating", "date added"};
 
-    private final ArrayList<Object[]> Reviewdetails = new ArrayList<>();
+    private final ArrayList<Object[]> reviewDetails = new ArrayList<>();
 
 
     public ReviewTable(){
@@ -23,7 +23,7 @@ public class ReviewTable extends AbstractTableModel {
 
     public void getData(ArrayList<Reviews> data){
 
-        Reviewdetails.clear(); //clearing from previous
+        reviewDetails.clear(); //clearing from previous
 
         for(Reviews details: data){  //for each row
 
@@ -37,7 +37,7 @@ public class ReviewTable extends AbstractTableModel {
 
             Object[] tableData = {review_id, customer_id,wine_id, customerDescription, customerRating, dateAdded}; //populating the details each row at a time into the table
 
-            Reviewdetails.add(tableData);
+            reviewDetails.add(tableData);
 
 
         }
@@ -46,7 +46,7 @@ public class ReviewTable extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return Reviewdetails.size();
+        return reviewDetails.size();
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ReviewTable extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return Reviewdetails.get(rowIndex)[columnIndex];
+        return reviewDetails.get(rowIndex)[columnIndex];
     }
 
     @Override
@@ -71,7 +71,7 @@ public class ReviewTable extends AbstractTableModel {
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Reviewdetails.get(rowIndex)[columnIndex] = aValue.toString();
+        reviewDetails.get(rowIndex)[columnIndex] = aValue.toString();
     }
 
     @Override

@@ -2,17 +2,16 @@ package client;
 
 import both.Wine;
 
-import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
 
 public class WineTable extends AbstractTableModel {
 
-    private final String[] columnNames = {"wine_id", "country", "description", " designa  tion", "points", "price", "province",
+    private final String[] columnNames = {"wine_id", "country", "description", " designation", "points", "price", "province",
             "region_1", "region_2", "tasterName", " taster_twitter_handle", "title", "variety", "winery", "year"};
 
-    private final ArrayList<Object[]> Winedetails = new ArrayList<>();
+    private final ArrayList<Object[]> wineDetails = new ArrayList<>();
 
 
     public WineTable(){
@@ -20,9 +19,9 @@ public class WineTable extends AbstractTableModel {
 
     public void getData(ArrayList<Wine> data){
 
-        Winedetails.clear(); //clearing from previous
+        wineDetails.clear(); //clearing from previous
 
-        for(Wine details: data){  //for eachrow
+        for(Wine details: data){  //for each row
 
             int wine_id = details.getWine_id();
             String country = details.getCountry();
@@ -43,7 +42,7 @@ public class WineTable extends AbstractTableModel {
             Object[] tableData = {wine_id, country,description, designation, points, price, province, region1, region2, tasterName,
             tasterTwitter, title, variety, winery, year}; //populating the details each row at a time into the table
 
-            Winedetails.add(tableData);
+            wineDetails.add(tableData);
 
 
         }
@@ -52,7 +51,7 @@ public class WineTable extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return Winedetails.size();
+        return wineDetails.size();
     }
 
     @Override
@@ -62,7 +61,7 @@ public class WineTable extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return Winedetails.get(rowIndex)[columnIndex];
+        return wineDetails.get(rowIndex)[columnIndex];
     }
 
     @Override
@@ -77,7 +76,7 @@ public class WineTable extends AbstractTableModel {
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Winedetails.get(rowIndex)[columnIndex] = aValue.toString();
+        wineDetails.get(rowIndex)[columnIndex] = aValue.toString();
     }
 
     @Override
@@ -85,7 +84,4 @@ public class WineTable extends AbstractTableModel {
         super.fireTableRowsDeleted(firstRow, lastRow);
     }
 
-    public void removeRow (int rowIndex) {
-        Winedetails.remove(rowIndex);
-    }
 }

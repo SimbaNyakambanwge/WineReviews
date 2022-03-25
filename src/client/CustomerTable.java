@@ -3,7 +3,7 @@ package client;
 import both.Customers;
 
 
-import javax.swing.event.TableModelListener;
+
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ public class CustomerTable extends AbstractTableModel {
     private final String[] columnNames = {"customer_id", "first name", "last name", "address", "city", "country", "postal",
             "phone 1", "phone 2", "email"};
 
-    private final ArrayList<Object[]> Customerdetails = new ArrayList<>();
+    private final ArrayList<Object[]> customerDetails = new ArrayList<>();
 
 
     public CustomerTable(){
@@ -22,11 +22,11 @@ public class CustomerTable extends AbstractTableModel {
 
     public void getData(ArrayList<Customers> data){
 
-        Customerdetails.clear(); //clearing from previous
+        customerDetails.clear(); //clearing from previous
 
         for(Customers details: data){  //for each row
 
-            int customerid = details.getCustomer_id();
+            int customer_id = details.getCustomer_id();
             String firstName = details.getFirstName();
             String lastName = details.getLastName();
             String address = details.getAddress();
@@ -37,9 +37,9 @@ public class CustomerTable extends AbstractTableModel {
             int phone2 = details.getPhone2();
             String email = details.getEmail();
 
-            Object[] tableData = {customerid, firstName,lastName, address, city, country, postal, phone1, phone2, email}; //populating the details each row at a time into the table
+            Object[] tableData = {customer_id, firstName,lastName, address, city, country, postal, phone1, phone2, email}; //populating the details each row at a time into the table
 
-            Customerdetails.add(tableData);
+            customerDetails.add(tableData);
 
 
         }
@@ -48,7 +48,7 @@ public class CustomerTable extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return Customerdetails.size();
+        return customerDetails.size();
     }
 
     @Override
@@ -58,7 +58,7 @@ public class CustomerTable extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return Customerdetails.get(rowIndex)[columnIndex];
+        return customerDetails.get(rowIndex)[columnIndex];
     }
 
     @Override
@@ -73,7 +73,7 @@ public class CustomerTable extends AbstractTableModel {
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Customerdetails.get(rowIndex)[columnIndex] = aValue.toString();
+        customerDetails.get(rowIndex)[columnIndex] = aValue.toString();
     }
 
     @Override

@@ -54,6 +54,22 @@ public class Server {
 
     }
 
+    public static Object getFilteredReviews(){
+        ArrayList<Reviews> record = new ArrayList<>();
+        String sql = "SELECT * FROM CustomerReviews WHERE wine_id=?";
+        try(Connection conn = ConnectionFactory.getConnection(); PreparedStatement prep = conn.prepareStatement(sql)){
+
+            ResultSet resultSet = prep.executeQuery();
+
+            while(resultSet.next()){
+                record.add(Reviews.ReviewFromResult(resultSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return record;
+    }
+
     public static Object getCustomers() {
         ArrayList<Customers> record = new ArrayList<>();
         String sql = "SELECT * FROM Customers";

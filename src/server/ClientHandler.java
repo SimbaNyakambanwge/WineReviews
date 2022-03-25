@@ -117,6 +117,12 @@ public class ClientHandler implements Runnable {
                else if(parcelRead.getCommand()==Command.EDIT && parcelRead.getTable()==TableSelection.CUSTOMERS){
                    objectOutputStream.writeObject(new Parcel());
                    Server.updateCustomersRow((Customers) parcelRead.getObject());
+               }
+               else if(parcelRead.getCommand()==Command.FILTER && parcelRead.getTable()==TableSelection.REVIEWS){
+                    ArrayList<Reviews> reply;
+
+                    reply = (ArrayList<Reviews>) Server.getFilteredReviews();
+                    objectOutputStream.writeObject(reply);
                 }
             }
         } catch (IOException ex) {

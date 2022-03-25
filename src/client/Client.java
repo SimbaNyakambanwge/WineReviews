@@ -37,7 +37,7 @@ public class Client {
     private JTable reviewsTable;
     private JButton getTableReviews;
     private JButton AddReviews;
-    private JButton EditReviews;
+    private JButton filterReviews;
     private JButton DeleteReviews;
     private JButton PrintReviews;
     private JTextField titleWinesTextField;
@@ -264,6 +264,14 @@ public class Client {
                 getCustomerTable();
             }
         });
+        filterReviews.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                filterWineId();
+                wineTableListener();
+
+            }
+        });
     }
 
     private void getReviewTable() {
@@ -372,6 +380,44 @@ public class Client {
             }
         }
 
+    }
+
+    private void filterWineId(){
+        if(objectOutputStream !=null && objectInputStream !=null) {
+
+            Reviews newReviews = new Reviews();
+            newReviews.setWine_id(Integer.parseInt(wineIdReviewsTextField.getText()));
+            try {
+                objectOutputStream.writeObject(new Parcel(Command.FILTER, TableSelection.REVIEWS, newReviews));
+            }catch (IOException e){
+
+                System.out.println("IOEXCEPTION ERROR" + e);
+            }
+            ArrayList<Reviews> reply = new ArrayList<>();
+
+            try{
+                reply = (ArrayList<Reviews>) objectInputStream.readObject();
+            }
+            catch(IOException | ClassNotFoundException e){
+                System.out.println("IOEXCEPTION ERROR" + e);
+            }
+
+            if(reply !=null){
+                try {
+                    reviewTableModel.getData(reply);
+
+                }
+                catch(NullPointerException e) {
+
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, e);
+                }
+
+
+            }
+            else {
+                System.out.println("please connect to server first");
+            }
+        }
     }
 
     private void closeConnection(){
@@ -546,6 +592,7 @@ public class Client {
             newWine.setTasterTwitterHandle(tasterTwitterHandleWinesTextField.getText());
             newWine.setTitle(titleWinesTextField.getText());
             newWine.setVariety(varietyWinesTextField.getText());
+            newWine.setWinery(wineryTextField.getText());
             newWine.setYear(Integer.parseInt(yearWinesTextField.getText()));
 
             if(objectOutputStream != null && objectInputStream != null){
@@ -864,7 +911,6 @@ public class Client {
         }
 
     }
-
     private void updateCustomerRow(){
         Customers newCustomers = new Customers();
 
@@ -916,8 +962,10 @@ public class Client {
         }
     }
 
+
+
     public static void main(String[] args){
-        Client obj = new Client();
+        Client object = new Client();
     }
 
 }
