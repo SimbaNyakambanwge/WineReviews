@@ -19,8 +19,6 @@ import java.util.logging.Logger;
 
 public class Client {
 
-    //region GUI components
-    private JTabbedPane Wines;
     private JPanel panel1;
     private JButton connectToServerButton;
     private JButton editButton;
@@ -63,21 +61,6 @@ public class Client {
     private JTextField wineIdReviewsTextField;
     private JTextField customerRatingReviewsTextField;
     private JTextField dateAddedReviewTextField;
-    private JLabel WineIDLabel;
-    private JLabel CountryWinesLabel;
-    private JLabel DesignationLabel;
-    private JLabel DescriptionLabel;
-    private JLabel PointsLabel;
-    private JLabel PriceLabel;
-    private JLabel ProvinceLabel;
-    private JLabel Region1Label;
-    private JLabel Region2Label;
-    private JLabel TasterNameLabel;
-    private JLabel TasterTwitterHandleLabel;
-    private JLabel TitleLabel;
-    private JLabel VarietyLabel;
-    private JLabel WineryLabel;
-    private JLabel YearLabel;
     private JTextField countryWinesTextField;
     private JTextField descriptionWinesTextField;
     private JTextField pointsWinesTextField;
@@ -85,21 +68,6 @@ public class Client {
     private JTextField region1WinesTextField;
     private JTextField region2WinesTextField;
     private JTextField tasterNameWinesTextField;
-    private JLabel CustomerIDLabel;
-    private JLabel FirstnameLabel;
-    private JLabel LastNameLabel;
-    private JLabel AddressLabel;
-    private JLabel countryLabel;
-    private JLabel PostalLabel;
-    private JLabel Phone1Label;
-    private JLabel Phone2Label;
-    private JLabel ReviewIdLabel;
-    private JLabel CustomerIdLabel;
-    private JLabel WineIdLabel;
-    private JLabel CustomerDescriptionReviewsLabel;
-    private JLabel customerRatingReviewsLabel;
-    private JLabel dateAddedLabel;
-    private JPanel WinesJPanel;
     private JPanel CustomersJPanel;
     private JPanel ReviewsJPanel;
     private JButton addCustomersButton;
@@ -296,6 +264,7 @@ public class Client {
             if(reply !=null){
                 try {
                     reviewTableModel.getData(reply);
+                    reviewsTable.setAutoCreateRowSorter(true);
                 }
                 catch(NullPointerException e) {
 
@@ -331,6 +300,7 @@ public class Client {
             if(reply !=null){
                 try {
                     customerTableModel.getData(reply);
+                    customerTable.setAutoCreateColumnsFromModel(true);
                 }
                 catch(NullPointerException e) {
 
@@ -366,7 +336,7 @@ public class Client {
             if(reply !=null){
                 try {
                     wineTableModel.getData(reply);
-
+                    winesTable1.setAutoCreateRowSorter(true);
                 }
                 catch(NullPointerException e) {
 

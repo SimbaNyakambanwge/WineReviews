@@ -56,9 +56,12 @@ public class Server {
 
     public static Object getFilteredReviews(){
         ArrayList<Reviews> record = new ArrayList<>();
-        String sql = "SELECT * FROM CustomerReviews WHERE wine_id=?";
-        try(Connection conn = ConnectionFactory.getConnection(); PreparedStatement prep = conn.prepareStatement(sql)){
+       Reviews newReviews = new Reviews();
+       newReviews.setWine_id(newReviews.getWine_id());
 
+        String sql = "SELECT * FROM CustomerReviews WHERE wine_id=?";
+
+        try(Connection conn = ConnectionFactory.getConnection(); PreparedStatement prep = conn.prepareStatement(sql)){
             ResultSet resultSet = prep.executeQuery();
 
             while(resultSet.next()){
