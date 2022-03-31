@@ -54,9 +54,9 @@ public class ReviewTable extends AbstractTableModel {
         return columnNames.length;
     }
 
-    @Override
+   @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return reviewDetails.get(rowIndex)[columnIndex];
+      return reviewDetails.get(rowIndex)[columnIndex];
     }
 
     @Override

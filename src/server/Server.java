@@ -54,17 +54,20 @@ public class Server {
 
     }
 
-    public static Object getFilteredReviews(){
+    public static Object getFilteredReviews(Reviews reviews){
         ArrayList<Reviews> record = new ArrayList<>();
-       Reviews newReviews = new Reviews();
-       newReviews.setWine_id(newReviews.getWine_id());
 
         String sql = "SELECT * FROM CustomerReviews WHERE wine_id=?";
 
-        try(Connection conn = ConnectionFactory.getConnection(); PreparedStatement prep = conn.prepareStatement(sql)){
+        try(Connection conn = ConnectionFactory.getConnection();
+            PreparedStatement prep = conn.prepareStatement(sql)){
+
+            //Reviews  newReviews =  (Reviews) getReviews();
+            prep.setInt(1,reviews.getWine_id());
             ResultSet resultSet = prep.executeQuery();
 
             while(resultSet.next()){
+
                 record.add(Reviews.ReviewFromResult(resultSet));
             }
         } catch (SQLException e) {

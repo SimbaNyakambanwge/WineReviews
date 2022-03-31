@@ -120,7 +120,9 @@ public class ClientHandler implements Runnable {
                }
                else if(parcelRead.getCommand()==Command.FILTER && parcelRead.getTable()==TableSelection.REVIEWS){
                     ArrayList<Reviews> reply;
-                    reply = (ArrayList<Reviews>) Server.getFilteredReviews();
+                    reply = (ArrayList<Reviews>) Server.getFilteredReviews((Reviews) parcelRead.getObject());
+                    //reply = (ArrayList<Reviews>) Server.getFilteredReviews();
+
                     objectOutputStream.writeObject(reply);
 
                 }

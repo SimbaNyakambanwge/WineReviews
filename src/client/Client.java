@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 
 public class Client {
 
+    //region GUI Components
     private JPanel panel1;
     private JButton connectToServerButton;
     private JButton editButton;
@@ -74,6 +75,7 @@ public class Client {
     private JTextArea reviewsDescriptionTextArea;
     private JScrollPane wineScroll;
     //endregion
+
 
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
@@ -236,7 +238,7 @@ public class Client {
             @Override
             public void actionPerformed(ActionEvent e) {
                 filterWineId();
-                wineTableListener();
+                //wineTableListener();
 
             }
         });
@@ -375,7 +377,7 @@ public class Client {
             if(reply !=null){
                 try {
                     reviewTableModel.getData(reply);
-
+                    reviewsTable.setAutoCreateRowSorter(true);
                 }
                 catch(NullPointerException e) {
 
