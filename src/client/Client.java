@@ -18,7 +18,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Client {
-
     //region GUI Components
     private JPanel panel1;
     private JButton connectToServerButton;
@@ -73,10 +72,12 @@ public class Client {
     private JPanel ReviewsJPanel;
     private JButton addCustomersButton;
     private JTextArea reviewsDescriptionTextArea;
+    private JTextField innerTitleTextField;
+    private JTextField innerdetailsTextField;
     private JScrollPane wineScroll;
     //endregion
 
-
+    //region Object Streams and table models
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
     private Socket socket;
@@ -84,7 +85,7 @@ public class Client {
     private WineTable wineTableModel;
     private CustomerTable customerTableModel;
     private ReviewTable reviewTableModel;
-
+    //endregion
 
     public Client(){
         initialSetup();
@@ -106,7 +107,6 @@ public class Client {
         j.setSize(400, 400);
         j.setVisible(true);
     }
-
     private void buttonActionListeners(){
         connectToServerButton.addActionListener(new ActionListener() {
             @Override
@@ -238,6 +238,7 @@ public class Client {
             @Override
             public void actionPerformed(ActionEvent e) {
                 filterWineId();
+
                 //wineTableListener();
 
             }
@@ -356,7 +357,7 @@ public class Client {
 
     private void filterWineId(){
         if(objectOutputStream !=null && objectInputStream !=null) {
-
+            innerWine();
             Reviews newReviews = new Reviews();
             newReviews.setWine_id(Integer.parseInt(wineIdReviewsTextField.getText()));
             try {
@@ -378,6 +379,49 @@ public class Client {
                 try {
                     reviewTableModel.getData(reply);
                     reviewsTable.setAutoCreateRowSorter(true);
+
+                }
+                catch(NullPointerException e) {
+
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, e);
+                }
+
+
+            }
+            else {
+                System.out.println("please connect to server first");
+            }
+        }
+    }
+    private void innerWine(){
+        if(objectOutputStream !=null && objectInputStream !=null) {
+
+            Reviews newReviewsInner = new Reviews();
+
+            newReviewsInner.setReview_id(Integer.parseInt(reviewIdReviewsTextField.getText()));
+            try {
+                objectOutputStream.writeObject(new Parcel(Command.JOIN, TableSelection.REVIEWS, newReviewsInner));
+            }catch (IOException e){
+
+                System.out.println("IOEXCEPTION ERROR" + e);
+            }
+            ArrayList<ReviewsInner> reply = new ArrayList<>();
+
+            try{
+                reply = (ArrayList<ReviewsInner>) objectInputStream.readObject();
+            }
+            catch(IOException | ClassNotFoundException e){
+                System.out.println("IOEXCEPTION ERROR" + e);
+            }
+
+            if(reply !=null){
+                try {
+                    reply.forEach(reviewsInner -> {
+                        innerTitleTextField.setText(String.valueOf(reviewsInner.getTitle()));
+                        innerdetailsTextField.setText(String.valueOf(reviewsInner.getDescription()));
+                    });
+
+
                 }
                 catch(NullPointerException e) {
 
@@ -933,8 +977,6 @@ public class Client {
 
         }
     }
-
-
 
     public static void main(String[] args){
         Client object = new Client();

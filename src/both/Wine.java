@@ -47,6 +47,12 @@ public class Wine implements Serializable {
         this.year = year;
     }
 
+    public Wine(String title,int points){
+        this.title = title;
+        this.points = points;
+
+    }
+
     public static Wine WineFromResult(ResultSet resultSet)throws SQLException{
        return new both.Wine(
                resultSet.getInt(1),

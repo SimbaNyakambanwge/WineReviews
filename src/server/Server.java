@@ -2,6 +2,7 @@ package server;
 
 import both.Customers;
 import both.Reviews;
+import both.ReviewsInner;
 import both.Wine;
 
 import java.io.*;
@@ -36,7 +37,7 @@ public class Server {
      * Let's just hard-code a simple HashMap<Keys, Values> to act as a lookup
      * table for the data to send.
      */
-    public static Object getWines() {
+    public static synchronized  Object getWines() {
         ArrayList<Wine> record = new ArrayList<>();
         String sql = "SELECT * FROM Wines";
 
@@ -54,15 +55,11 @@ public class Server {
 
     }
 
-    public static Object getFilteredReviews(Reviews reviews){
+    public static synchronized Object getFilteredReviews(Reviews reviews){
         ArrayList<Reviews> record = new ArrayList<>();
-
         String sql = "SELECT * FROM CustomerReviews WHERE wine_id=?";
 
-        try(Connection conn = ConnectionFactory.getConnection();
-            PreparedStatement prep = conn.prepareStatement(sql)){
-
-            //Reviews  newReviews =  (Reviews) getReviews();
+        try(Connection conn = ConnectionFactory.getConnection(); PreparedStatement prep = conn.prepareStatement(sql)){
             prep.setInt(1,reviews.getWine_id());
             ResultSet resultSet = prep.executeQuery();
 
@@ -76,7 +73,28 @@ public class Server {
         return record;
     }
 
-    public static Object getCustomers() {
+    public static synchronized Object innerWine(Reviews reviews){
+        ArrayList<ReviewsInner> record = new ArrayList<>();
+        String sql = "SELECT Wines.title, Wines.points FROM Wines INNER JOIN customerReviews ON customerReviews.wine_id = Wines.wine_id "+
+                "WHERE customerReviews.review_id = ? ";
+
+        try(Connection conn = ConnectionFactory.getConnection(); PreparedStatement prep = conn.prepareStatement(sql)){
+            prep.setInt(1, reviews.getReview_id());
+            ResultSet resultSet = prep.executeQuery();
+
+            while(resultSet.next()){
+                //record.add(new Reviews());
+                record.add(ReviewsInner.ReviewFromResult(resultSet));
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return record;
+    }
+
+    public static synchronized Object getCustomers() {
         ArrayList<Customers> record = new ArrayList<>();
         String sql = "SELECT * FROM Customers";
 
@@ -94,7 +112,7 @@ public class Server {
 
     }
 
-    public static Object getReviews() {
+    public static synchronized Object getReviews() {
         ArrayList<Reviews> record = new ArrayList<>();
         String sql = "SELECT * FROM CustomerReviews";
 

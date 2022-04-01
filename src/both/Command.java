@@ -5,5 +5,6 @@ public enum Command {
     ADD,
     REMOVE,
     EDIT,
-    FILTER
+    FILTER,
+    JOIN
 }

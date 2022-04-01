@@ -42,6 +42,7 @@ public class Reviews implements Serializable {
                 resultSet.getString(4),
                 resultSet.getInt(5),
                 resultSet.getString(6)
+
         );
 
     }
