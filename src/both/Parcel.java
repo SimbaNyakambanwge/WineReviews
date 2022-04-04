@@ -22,10 +22,6 @@ public class Parcel implements Serializable {
         return command;
     }
 
-    public void setCommand(Command command) {
-        this.command = command;
-    }
-
     public TableSelection getTable() {
         return table;
     }

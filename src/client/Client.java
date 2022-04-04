@@ -4,10 +4,7 @@ import both.*;
 
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.awt.print.PrinterException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -90,6 +87,9 @@ public class Client {
     public Client(){
         initialSetup();
         buttonActionListeners();
+        wineKeyListeners();
+        customerKeyListeners();
+        reviewKeyListeners();
     }
 
     private void initialSetup(){
@@ -238,7 +238,7 @@ public class Client {
             @Override
             public void actionPerformed(ActionEvent e) {
                 filterWineId();
-
+                innerWine();
                 //wineTableListener();
 
             }
@@ -357,7 +357,7 @@ public class Client {
 
     private void filterWineId(){
         if(objectOutputStream !=null && objectInputStream !=null) {
-            innerWine();
+
             Reviews newReviews = new Reviews();
             newReviews.setWine_id(Integer.parseInt(wineIdReviewsTextField.getText()));
             try {
@@ -976,6 +976,611 @@ public class Client {
             System.out.println("You must connect to the server first!!");
 
         }
+    }
+
+    private void wineKeyListeners(){
+
+        wineIdTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isDigit(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+        countryWinesTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isAlphabetic(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        descriptionWinesTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        pointsWinesTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isDigit(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        priceWinesTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isDigit(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        provinceWinesTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        region1WinesTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isAlphabetic(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        region2WinesTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isAlphabetic(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        tasterNameWinesTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        tasterTwitterHandleWinesTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if(!(Character.isAlphabetic(input) || Character.isDigit(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        titleWinesTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isAlphabetic(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        varietyWinesTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isAlphabetic(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        wineryTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        yearWinesTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isDigit(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+    }
+    private void customerKeyListeners(){
+       customerIdCustomersTextField.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               char input = e.getKeyChar();
+               if (!(Character.isDigit(input))){
+                   e.consume();
+               }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+
+           }
+       });
+
+       firstNameCustomersTextField.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               char input = e.getKeyChar();
+               if (!(Character.isAlphabetic(input))){
+                   e.consume();
+               }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+
+           }
+       });
+
+       lastNameCustomersTextField.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               char input = e.getKeyChar();
+               if (!(Character.isAlphabetic(input))){
+                   e.consume();
+               }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+
+           }
+       });
+
+       addressCustomersTextField.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               char input = e.getKeyChar();
+               if(!(Character.isAlphabetic(input) || Character.isDigit(input) || Character.isSpaceChar(input))){
+                   e.consume();
+               }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+
+           }
+       });
+
+       cityCustomersTextField.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               char input = e.getKeyChar();
+               if (!(Character.isAlphabetic(input))){
+                   e.consume();
+               }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+
+           }
+       });
+
+       countyCustomersTextField.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               char input = e.getKeyChar();
+               if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input))){
+                   e.consume();
+               }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+
+           }
+       });
+
+       postalTextField.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               char input = e.getKeyChar();
+               if(!(Character.isAlphabetic(input) || Character.isDigit(input) || Character.isSpaceChar(input))){
+                   e.consume();
+               }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+
+           }
+       });
+
+       phone1CustomersTextField.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               char input = e.getKeyChar();
+               if (!(Character.isDigit(input))){
+                   e.consume();
+               }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+
+           }
+       });
+
+       phone2CustomersTextField.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               char input = e.getKeyChar();
+               if (!(Character.isDigit(input))){
+                   e.consume();
+               }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+
+           }
+       });
+
+       emailCustomersTextField.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+               char input = e.getKeyChar();
+               if(!(Character.isAlphabetic(input) || Character.isDigit(input))){
+                   e.consume();
+               }
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+
+           }
+       });
+    }
+    private void reviewKeyListeners(){
+        reviewIdReviewsTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isDigit(input))){
+                    e.consume();
+                }
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        customerIdReviewsTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isDigit(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        reviewsDescriptionTextArea.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        wineIdReviewsTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isDigit(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        customerRatingReviewsTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isDigit(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
+        dateAddedReviewTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char input = e.getKeyChar();
+                if (!(Character.isDigit(input))){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
     }
 
     public static void main(String[] args){

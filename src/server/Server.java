@@ -75,6 +75,7 @@ public class Server {
 
     public static synchronized Object innerWine(Reviews reviews){
         ArrayList<ReviewsInner> record = new ArrayList<>();
+       // ArrayList<Reviews> record = new ArrayList<>();
         String sql = "SELECT Wines.title, Wines.points FROM Wines INNER JOIN customerReviews ON customerReviews.wine_id = Wines.wine_id "+
                 "WHERE customerReviews.review_id = ? ";
 
@@ -86,6 +87,7 @@ public class Server {
                 //record.add(new Reviews());
                 record.add(ReviewsInner.ReviewFromResult(resultSet));
 
+                //record.add(Reviews.ReviewFromResult(resultSet));
 
             }
         } catch (SQLException e) {
