@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
+/**
+ * A helper class to get the inner join functionality as this class grabs the two variables I need for operation
+ */
 
 public class ReviewsInner implements Serializable {
 

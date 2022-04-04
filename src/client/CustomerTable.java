@@ -7,6 +7,10 @@ import both.Customers;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
+/**
+ * Helper class formed to ensure the arraylist of customer objects can be populated into an abstract table on the client side
+ * In turn into the J table on the GUI
+ */
 
 public class CustomerTable extends AbstractTableModel {
 

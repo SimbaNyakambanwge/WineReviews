@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 public class ClientHandler implements Runnable {
 
     private final Socket socket;
-//    private final HashMap<String, String> hashMapNames;
+
 
 
     private static int connectionCount = 0;
@@ -61,6 +61,12 @@ public class ClientHandler implements Runnable {
             threadSays("Connection" + connectionCount + " To the server");
 
             Parcel parcelRead;
+
+            /**
+             * Below are the operations that ensure that the right command retrieves the right data using if statements
+             * as well as enumarators to ensure functionality across the differenet clients. Used to enums to differentiate
+             * between the three distincitive tables
+             */
 
             while((parcelRead = (Parcel) objectInputStream.readObject()) != null){
 
@@ -145,7 +151,7 @@ public class ClientHandler implements Runnable {
     }
 
     /**
-     * Private helper method outputs to standard output stream for debugging.
+     * Private helper method outputs to standard output stream to know the number of clients connected.
      *
      * @param say the String to write to standard output stream.
      */

@@ -13,7 +13,12 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+/**
+ * This is the client class, the class that is connected to the GUI form this is where most of the client operations occur
+ * Except for the table structure and formation.
+ * This class also holds listeners to ensure data validation as well as data entry into the database
+ * This class is also responsible for setting enums and sending these to the client handler
+ */
 public class Client {
     //region GUI Components
     private JPanel panel1;
@@ -70,7 +75,7 @@ public class Client {
     private JButton addCustomersButton;
     private JTextArea reviewsDescriptionTextArea;
     private JTextField innerTitleTextField;
-    private JTextField innerdetailsTextField;
+    private JTextField innerDetailsTextField;
     private JScrollPane wineScroll;
     //endregion
 
@@ -239,7 +244,6 @@ public class Client {
             public void actionPerformed(ActionEvent e) {
                 filterWineId();
                 innerWine();
-                //wineTableListener();
 
             }
         });
@@ -418,7 +422,7 @@ public class Client {
                 try {
                     reply.forEach(reviewsInner -> {
                         innerTitleTextField.setText(String.valueOf(reviewsInner.getTitle()));
-                        innerdetailsTextField.setText(String.valueOf(reviewsInner.getDescription()));
+                        innerDetailsTextField.setText(String.valueOf(reviewsInner.getDescription()));
                     });
 
 

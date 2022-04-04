@@ -3,7 +3,10 @@ package both;
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+/**
+ * This class is responsible for the setting of received data from the sql result set.
+ * As well as setting getters and setters for the column different columns found in the Reviews table
+ */
 
 
 public class Reviews implements Serializable {

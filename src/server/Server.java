@@ -34,8 +34,8 @@ public class Server {
     }
 
     /**
-     * Let's just hard-code a simple HashMap<Keys, Values> to act as a lookup
-     * table for the data to send.
+     * The following methods are designed to achieve all the button operation of the wine system allowing for the client
+     * to retrieve data from the database. These contain the sql statements
      */
     public static synchronized  Object getWines() {
         ArrayList<Wine> record = new ArrayList<>();
@@ -86,7 +86,6 @@ public class Server {
             while(resultSet.next()){
                 //record.add(new Reviews());
                 record.add(ReviewsInner.ReviewFromResult(resultSet));
-
                 //record.add(Reviews.ReviewFromResult(resultSet));
 
             }

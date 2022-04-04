@@ -7,7 +7,10 @@ import both.Reviews;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
-
+/**
+ * Helper class formed to ensure the arraylist of reviews objects can be populated into an abstract table on the client side
+ * In turn into the J table on the GUI
+ */
 
 public class ReviewTable extends AbstractTableModel {
 

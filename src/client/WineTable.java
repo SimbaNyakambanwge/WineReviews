@@ -5,7 +5,10 @@ import both.Wine;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
-
+/**
+ * Helper class formed to ensure the arraylist of wine objects can be populated into an abstract table on the client side
+ * In turn into the J table on the GUI
+ */
 public class WineTable extends AbstractTableModel {
 
     private final String[] columnNames = {"wine_id", "country", "description", " designation", "points", "price", "province",
