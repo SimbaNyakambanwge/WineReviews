@@ -274,7 +274,6 @@ public class Client {
                     reviewsTable.setAutoCreateRowSorter(true);
                 }
                 catch(NullPointerException e) {
-
                     Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, e);
                 }
 
@@ -1027,7 +1026,7 @@ public class Client {
             @Override
             public void keyTyped(KeyEvent e) {
                 char input = e.getKeyChar();
-                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input))){
+                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input) || Character.isWhitespace(input))){
                     e.consume();
                 }
             }
@@ -1087,7 +1086,7 @@ public class Client {
             @Override
             public void keyTyped(KeyEvent e) {
                 char input = e.getKeyChar();
-                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input))){
+                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input)|| Character.isWhitespace(input))){
                     e.consume();
                 }
             }
@@ -1107,7 +1106,7 @@ public class Client {
             @Override
             public void keyTyped(KeyEvent e) {
                 char input = e.getKeyChar();
-                if (!(Character.isAlphabetic(input))){
+                if (!(Character.isAlphabetic(input) || Character.isWhitespace(input))){
                     e.consume();
                 }
             }
@@ -1127,7 +1126,7 @@ public class Client {
             @Override
             public void keyTyped(KeyEvent e) {
                 char input = e.getKeyChar();
-                if (!(Character.isAlphabetic(input))){
+                if (!(Character.isAlphabetic(input) || Character.isWhitespace(input))){
                     e.consume();
                 }
             }
@@ -1147,7 +1146,7 @@ public class Client {
             @Override
             public void keyTyped(KeyEvent e) {
                 char input = e.getKeyChar();
-                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input))){
+                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input) || Character.isWhitespace(input))){
                     e.consume();
                 }
             }
@@ -1187,7 +1186,7 @@ public class Client {
             @Override
             public void keyTyped(KeyEvent e) {
                 char input = e.getKeyChar();
-                if (!(Character.isAlphabetic(input))){
+                if (!(Character.isAlphabetic(input) || Character.isWhitespace(input))){
                     e.consume();
                 }
             }
@@ -1227,7 +1226,7 @@ public class Client {
             @Override
             public void keyTyped(KeyEvent e) {
                 char input = e.getKeyChar();
-                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input))){
+                if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input) || Character.isWhitespace(input))){
                     e.consume();
                 }
             }
@@ -1328,7 +1327,7 @@ public class Client {
            @Override
            public void keyTyped(KeyEvent e) {
                char input = e.getKeyChar();
-               if(!(Character.isAlphabetic(input) || Character.isDigit(input) || Character.isSpaceChar(input))){
+               if(!(Character.isAlphabetic(input) || Character.isDigit(input) || Character.isSpaceChar(input) || Character.isWhitespace(input))){
                    e.consume();
                }
            }
@@ -1368,7 +1367,7 @@ public class Client {
            @Override
            public void keyTyped(KeyEvent e) {
                char input = e.getKeyChar();
-               if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input))){
+               if(!(Character.isAlphabetic(input) || Character.isSpaceChar(input) || Character.isWhitespace(input))){
                    e.consume();
                }
            }
