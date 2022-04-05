@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
+ * @author Simbarashe Nyakambangwe
+ * SID: 8316064
  * This is the client class, the class that is connected to the GUI form this is where most of the client operations occur
  * Except for the table structure and formation.
  * This class also holds listeners to ensure data validation as well as data entry into the database
@@ -252,7 +254,7 @@ public class Client {
     private void getReviewTable() {
         if(objectOutputStream !=null && objectInputStream !=null) {
             Reviews newReview = new Reviews();
-
+           // Send data
             try {
                 objectOutputStream.writeObject(new Parcel(Command.SELECT, TableSelection.REVIEWS, newReview));
             }catch (IOException e){
@@ -260,14 +262,14 @@ public class Client {
                 System.out.println("IOEXCEPTION ERROR" + e);
             }
             ArrayList<Reviews> reply = new ArrayList<>();
-
+            // receive data
             try{
                 reply = (ArrayList<Reviews>) objectInputStream.readObject();
             }
             catch(IOException | ClassNotFoundException e){
                 System.out.println("IOEXCEPTION ERROR" + e);
             }
-
+            // View table in table
             if(reply !=null){
                 try {
                     reviewTableModel.getData(reply);
@@ -323,7 +325,7 @@ public class Client {
     private void getWineTable(){
         if(objectOutputStream !=null && objectInputStream !=null) {
             Wine newWine = new Wine();
-
+           // Send data
             try {
                 objectOutputStream.writeObject(new Parcel(Command.SELECT, TableSelection.WINE, newWine));
             }catch (IOException e){
@@ -331,14 +333,14 @@ public class Client {
                 System.out.println("IOEXCEPTION ERROR" + e);
             }
             ArrayList<Wine> reply = new ArrayList<>();
-
+           // receive data
             try{
                 reply = (ArrayList<Wine>) objectInputStream.readObject();
             }
             catch(IOException | ClassNotFoundException e){
                 System.out.println("IOEXCEPTION ERROR" + e);
             }
-
+            // View table in table
             if(reply !=null){
                 try {
                     wineTableModel.getData(reply);
@@ -358,6 +360,8 @@ public class Client {
 
     }
 
+
+    // Filter and inner wine methods for the filter review button in the Review table tab//
     private void filterWineId(){
         if(objectOutputStream !=null && objectInputStream !=null) {
 
@@ -987,6 +991,7 @@ public class Client {
             @Override
             public void keyTyped(KeyEvent e) {
                 char input = e.getKeyChar();
+                JOptionPane.showMessageDialog(panel1, "This is auto generated");
                 if (!(Character.isDigit(input))){
                     e.consume();
                 }
@@ -1267,6 +1272,7 @@ public class Client {
            @Override
            public void keyTyped(KeyEvent e) {
                char input = e.getKeyChar();
+               JOptionPane.showMessageDialog(panel1, "This is auto generated");
                if (!(Character.isDigit(input))){
                    e.consume();
                }
@@ -1468,6 +1474,7 @@ public class Client {
             @Override
             public void keyTyped(KeyEvent e) {
                 char input = e.getKeyChar();
+                JOptionPane.showMessageDialog(panel1, "This is auto generated");
                 if (!(Character.isDigit(input))){
                     e.consume();
                 }

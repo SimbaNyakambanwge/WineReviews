@@ -18,6 +18,7 @@ import java.util.logging.Logger;
  * is better because we do not have to waste our inheritance option.
  *
  * @author Simbarashe Nyakambangwe
+ * SID: 8316064
  * 14/03/2022
  */
 public class ClientHandler implements Runnable {
@@ -62,10 +63,10 @@ public class ClientHandler implements Runnable {
 
             Parcel parcelRead;
 
-            /**
-             * Below are the operations that ensure that the right command retrieves the right data using if statements
-             * as well as enumarators to ensure functionality across the differenet clients. Used to enums to differentiate
-             * between the three distincitive tables
+            /*
+              Below are the operations that ensure that the right command retrieves the right data using if statements
+              as well as enums to ensure functionality across the different clients. Used to enums to differentiate
+              between the three distinctive tables
              */
 
             while((parcelRead = (Parcel) objectInputStream.readObject()) != null){

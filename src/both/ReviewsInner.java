@@ -6,20 +6,17 @@ import java.sql.SQLException;
 
 /**
  * A helper class to get the inner join functionality as this class grabs the two variables I need for operation
+ * @author Simbarashe Nyakambangwe
+ * SID: 8316064
  */
 
 public class ReviewsInner implements Serializable {
-
-
     private String title;
     private String description;
 
 
-
-
     public ReviewsInner(){
     }
-
 
 
     public ReviewsInner( String title, String description) {

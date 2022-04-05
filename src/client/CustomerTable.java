@@ -10,6 +10,8 @@ import java.util.ArrayList;
 /**
  * Helper class formed to ensure the arraylist of customer objects can be populated into an abstract table on the client side
  * In turn into the J table on the GUI
+ * @author Simbarashe Nyakambangwe
+ * SID: 8316064
  */
 
 public class CustomerTable extends AbstractTableModel {

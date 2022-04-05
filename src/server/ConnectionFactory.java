@@ -7,6 +7,7 @@ import java.sql.SQLException;
 /**
  * The purpose of this class is to encapsulate connecting to the SQLite database.
  * @author Simbarashe Nyakambangwe
+ * SID: 8316064
  */
 public class ConnectionFactory {
 

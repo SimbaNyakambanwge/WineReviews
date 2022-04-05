@@ -21,6 +21,7 @@ import java.util.logging.Logger;
  * and starting a new thread for each new client.
  *
  * @author Simbarashe Nyakambangwe
+ * SID: 8316064
  * 14/03/2022
  */
 public class Server {

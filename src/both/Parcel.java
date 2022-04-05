@@ -3,6 +3,8 @@ package both;
 import java.io.Serializable;
 /**
  * Allows for the "package/ information flow" Between the client and the server package holding the various enums
+ * @author Simbarashe Nyakambangwe
+ * SID: 8316064
  */
 public class Parcel implements Serializable {
 
